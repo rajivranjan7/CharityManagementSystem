@@ -74,7 +74,7 @@ public class ManageNetwork extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(2, 55, 108));
         jLabel1.setText("Manage Network");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(275, 74, 287, 47);
+        jLabel1.setBounds(390, 110, 287, 47);
 
         btnBack.setBackground(new java.awt.Color(2, 55, 108));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -116,16 +116,16 @@ public class ManageNetwork extends javax.swing.JFrame {
         }
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(138, 148, 604, 201);
+        jScrollPane1.setBounds(250, 180, 604, 201);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("Enter new Network:");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(173, 418, 250, 22);
+        jLabel2.setBounds(290, 450, 250, 22);
 
         txtNetwork.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel1.add(txtNetwork);
-        txtNetwork.setBounds(438, 415, 201, 30);
+        txtNetwork.setBounds(550, 450, 201, 30);
 
         btnAddNetwork.setBackground(new java.awt.Color(2, 55, 108));
         btnAddNetwork.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -137,7 +137,7 @@ public class ManageNetwork extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAddNetwork);
-        btnAddNetwork.setBounds(435, 518, 180, 50);
+        btnAddNetwork.setBounds(550, 550, 180, 50);
 
         btnCancel.setBackground(new java.awt.Color(2, 55, 108));
         btnCancel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -149,11 +149,11 @@ public class ManageNetwork extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnCancel);
-        btnCancel.setBounds(217, 518, 180, 50);
+        btnCancel.setBounds(330, 550, 180, 50);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/network.jpg"))); // NOI18N
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(640, -30, 1270, 730);
+        jLabel3.setBounds(800, 10, 1270, 730);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

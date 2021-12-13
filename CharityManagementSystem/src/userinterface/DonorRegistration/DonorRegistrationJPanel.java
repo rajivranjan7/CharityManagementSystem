@@ -142,59 +142,83 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
         jLabelEmailSuccess = new javax.swing.JLabel();
         jButtonClickImage = new javax.swing.JButton();
         jLabelImageHolder = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setBackground(new java.awt.Color(255, 255, 255));
+        setPreferredSize(new java.awt.Dimension(900, 900));
+        setLayout(null);
 
         jLabelTitle.setFont(new java.awt.Font("Marker Felt", 1, 48)); // NOI18N
+        jLabelTitle.setForeground(new java.awt.Color(2, 55, 108));
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitle.setText("DONOR REGISTRATION");
-        add(jLabelTitle, new org.netbeans.lib.awtextra.AbsoluteConstraints(-90, 37, 1148, 50));
+        add(jLabelTitle);
+        jLabelTitle.setBounds(-90, 37, 1148, 50);
 
-        jLabelName.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelName.setForeground(new java.awt.Color(2, 55, 108));
         jLabelName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelName.setText("Name:");
-        add(jLabelName, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 150, 138, 23));
+        add(jLabelName);
+        jLabelName.setBounds(340, 160, 138, 23);
 
-        jLabelUsername.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelUsername.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelUsername.setForeground(new java.awt.Color(2, 55, 108));
         jLabelUsername.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelUsername.setText("Username:");
-        add(jLabelUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 200, 138, 23));
+        add(jLabelUsername);
+        jLabelUsername.setBounds(340, 220, 138, 23);
 
-        jLabelPassword.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelPassword.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelPassword.setForeground(new java.awt.Color(2, 55, 108));
         jLabelPassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelPassword.setText("Password:");
-        add(jLabelPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 260, 138, 23));
+        add(jLabelPassword);
+        jLabelPassword.setBounds(340, 280, 138, 23);
 
-        jLabelEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelEmail.setForeground(new java.awt.Color(2, 55, 108));
         jLabelEmail.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelEmail.setText("Email ID:");
-        add(jLabelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 320, 138, 23));
+        add(jLabelEmail);
+        jLabelEmail.setBounds(340, 340, 138, 23);
 
-        jLabelState.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelState.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelState.setForeground(new java.awt.Color(2, 55, 108));
         jLabelState.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelState.setText("Network:");
-        add(jLabelState, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 380, 138, 23));
+        add(jLabelState);
+        jLabelState.setBounds(340, 460, 138, 23);
 
-        jLabelOrganization.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelOrganization.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelOrganization.setForeground(new java.awt.Color(2, 55, 108));
         jLabelOrganization.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelOrganization.setText("Organization:");
-        add(jLabelOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, 115, 23));
+        add(jLabelOrganization);
+        jLabelOrganization.setBounds(330, 520, 150, 23);
 
-        jLabelCarrier.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelCarrier.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelCarrier.setForeground(new java.awt.Color(2, 55, 108));
         jLabelCarrier.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelCarrier.setText("Mobile Network:");
-        add(jLabelCarrier, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 580, 138, 23));
+        add(jLabelCarrier);
+        jLabelCarrier.setBounds(300, 580, 180, 23);
 
-        jLabelContact.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelContact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelContact.setForeground(new java.awt.Color(2, 55, 108));
         jLabelContact.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelContact.setText("Contact:");
-        add(jLabelContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 640, 138, 23));
+        add(jLabelContact);
+        jLabelContact.setBounds(340, 640, 138, 23);
 
-        jLabelLocation.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabelLocation.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelLocation.setForeground(new java.awt.Color(2, 55, 108));
         jLabelLocation.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelLocation.setText("Address:");
-        add(jLabelLocation, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 450, -1, 23));
+        add(jLabelLocation);
+        jLabelLocation.setBounds(400, 400, 78, 23);
 
+        jTextFieldName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldName.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldNameKeyPressed(evt);
@@ -203,8 +227,10 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
                 jTextFieldNameKeyTyped(evt);
             }
         });
-        add(jTextFieldName, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 150, 181, 23));
+        add(jTextFieldName);
+        jTextFieldName.setBounds(540, 150, 240, 40);
 
+        jTextFieldUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldUsernameActionPerformed(evt);
@@ -218,8 +244,10 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
                 jTextFieldUsernameKeyReleased(evt);
             }
         });
-        add(jTextFieldUsername, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 181, 23));
+        add(jTextFieldUsername);
+        jTextFieldUsername.setBounds(540, 210, 240, 40);
 
+        jTextFieldPassword.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldPasswordActionPerformed(evt);
@@ -230,8 +258,10 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
                 jTextFieldPasswordKeyTyped(evt);
             }
         });
-        add(jTextFieldPassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 260, 181, 23));
+        add(jTextFieldPassword);
+        jTextFieldPassword.setBounds(540, 270, 240, 40);
 
+        jTextFieldEmailID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldEmailID.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextFieldEmailIDActionPerformed(evt);
@@ -242,36 +272,48 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
                 jTextFieldEmailIDKeyTyped(evt);
             }
         });
-        add(jTextFieldEmailID, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 320, 181, 23));
+        add(jTextFieldEmailID);
+        jTextFieldEmailID.setBounds(540, 330, 240, 40);
 
+        jTextFieldContact.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldContact.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldContactKeyPressed(evt);
             }
         });
-        add(jTextFieldContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 640, 188, 23));
-        add(jTextFieldAddress, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 450, 188, 23));
+        add(jTextFieldContact);
+        jTextFieldContact.setBounds(540, 630, 240, 40);
 
+        jTextFieldAddress.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        add(jTextFieldAddress);
+        jTextFieldAddress.setBounds(540, 390, 240, 40);
+
+        jButtonRegister.setBackground(new java.awt.Color(255, 255, 255));
         jButtonRegister.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonRegister.setText("Register");
+        jButtonRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/24945-4-register-button-transparent.png"))); // NOI18N
         jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegisterActionPerformed(evt);
             }
         });
-        add(jButtonRegister, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 710, 144, 31));
+        add(jButtonRegister);
+        jButtonRegister.setBounds(570, 710, 160, 60);
 
         jLabelUsernameExists.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelUsernameExists.setForeground(new java.awt.Color(255, 0, 0));
         jLabelUsernameExists.setText("Username Already Exists!");
-        add(jLabelUsernameExists, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 200, -1, -1));
+        add(jLabelUsernameExists);
+        jLabelUsernameExists.setBounds(850, 220, 144, 14);
 
         jLabelEmailIncorrect.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelEmailIncorrect.setForeground(new java.awt.Color(255, 0, 0));
         jLabelEmailIncorrect.setText("Incorrect Email Format!");
-        add(jLabelEmailIncorrect, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 330, -1, -1));
-        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(793, 144, 93, 25));
+        add(jLabelEmailIncorrect);
+        jLabelEmailIncorrect.setBounds(850, 340, 133, 14);
+        add(jLabel1);
+        jLabel1.setBounds(793, 144, 93, 25);
 
+        jComboBoxNetwork.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBoxNetwork.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxNetwork.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -283,8 +325,10 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
                 jComboBoxNetworkActionPerformed(evt);
             }
         });
-        add(jComboBoxNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 380, 190, -1));
+        add(jComboBoxNetwork);
+        jComboBoxNetwork.setBounds(540, 450, 240, 40);
 
+        jComboBoxOrganization.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBoxOrganization.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxOrganization.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -301,8 +345,10 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
                 jComboBoxOrganizationKeyTyped(evt);
             }
         });
-        add(jComboBoxOrganization, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 510, 190, -1));
+        add(jComboBoxOrganization);
+        jComboBoxOrganization.setBounds(540, 510, 240, 40);
 
+        jComboBoxMobileNetwork.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBoxMobileNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jComboBoxMobileNetwork.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
@@ -319,22 +365,34 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
                 jComboBoxMobileNetworkKeyTyped(evt);
             }
         });
-        add(jComboBoxMobileNetwork, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 570, 190, -1));
+        add(jComboBoxMobileNetwork);
+        jComboBoxMobileNetwork.setBounds(540, 570, 240, 40);
 
         jLabeluserNameSuccess.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/tick1.4.gif"))); // NOI18N
-        add(jLabeluserNameSuccess, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 190, 40, -1));
+        add(jLabeluserNameSuccess);
+        jLabeluserNameSuccess.setBounds(800, 210, 40, 33);
 
         jLabelEmailSuccess.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/tick1.4.gif"))); // NOI18N
-        add(jLabelEmailSuccess, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 320, 40, -1));
+        add(jLabelEmailSuccess);
+        jLabelEmailSuccess.setBounds(800, 330, 40, 33);
 
+        jButtonClickImage.setBackground(new java.awt.Color(2, 55, 108));
+        jButtonClickImage.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButtonClickImage.setForeground(new java.awt.Color(255, 255, 255));
         jButtonClickImage.setText("Capture Image");
         jButtonClickImage.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonClickImageActionPerformed(evt);
             }
         });
-        add(jButtonClickImage, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 360, -1, -1));
-        add(jLabelImageHolder, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 100, 320, 240));
+        add(jButtonClickImage);
+        jButtonClickImage.setBounds(79, 360, 180, 40);
+        add(jLabelImageHolder);
+        jLabelImageHolder.setBounds(10, 100, 320, 240);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/donating-art-to-charity.png"))); // NOI18N
+        add(jLabel2);
+        jLabel2.setBounds(970, 80, 980, 650);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsernameActionPerformed
@@ -620,6 +678,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
     private javax.swing.JComboBox jComboBoxNetwork;
     private javax.swing.JComboBox jComboBoxOrganization;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCarrier;
     private javax.swing.JLabel jLabelContact;
     private javax.swing.JLabel jLabelEmail;

@@ -98,7 +98,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1.setPreferredSize(new java.awt.Dimension(311, 645));
         jPanel1.setLayout(null);
 
-        loginJButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\prabs\\Pictures\\Charity Pics\\login logout button 1.jpg")); // NOI18N
+        loginJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/login logout button 1.jpg"))); // NOI18N
         loginJButton.setText("Login");
         loginJButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -130,7 +130,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1.add(loginJLabel);
         loginJLabel.setBounds(305, 253, 0, 0);
 
-        logoutJButton.setIcon(new javax.swing.ImageIcon("C:\\Users\\prabs\\Pictures\\Charity Pics\\login logout button 2.jpg")); // NOI18N
+        logoutJButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/login logout button 2.jpg"))); // NOI18N
         logoutJButton.setText("Logout");
         logoutJButton.setEnabled(false);
         logoutJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -156,8 +156,7 @@ public class MainJFrame extends javax.swing.JFrame {
         jPanel1.add(btnRegister);
         btnRegister.setBounds(60, 590, 165, 50);
 
-        jLabel5.setIcon(new javax.swing.ImageIcon("C:\\Users\\prabs\\Pictures\\Charity Pics\\donate.jpg")); // NOI18N
-        jLabel5.setText("jLabel5");
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/donate.jpg"))); // NOI18N
         jPanel1.add(jLabel5);
         jLabel5.setBounds(0, 0, 310, 1000);
 
@@ -167,11 +166,11 @@ public class MainJFrame extends javax.swing.JFrame {
         container.setLayout(null);
 
         jLabel4.setFont(new java.awt.Font("MS Gothic", 3, 60)); // NOI18N
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\prabs\\Pictures\\Charity Pics\\cms TITLE.PNG")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/cms TITLE.PNG"))); // NOI18N
         container.add(jLabel4);
         jLabel4.setBounds(80, 700, 1520, 290);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\prabs\\Pictures\\Charity Pics\\Capture.PNG")); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/Capture.PNG"))); // NOI18N
         container.add(jLabel3);
         jLabel3.setBounds(250, -210, 1700, 1310);
 
