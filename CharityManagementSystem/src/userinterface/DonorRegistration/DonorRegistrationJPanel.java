@@ -66,11 +66,11 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
     private boolean userUnique;
     private boolean isRunning = false;
 
-  //  Webcam webcam = Webcam.getDefault();
+    Webcam webcam = Webcam.getDefault();
 
     public DonorRegistrationJPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
-      //  webcam.setViewSize(new Dimension(176, 144));
+        webcam.setViewSize(new Dimension(176, 144));
         this.userProcessContainer = userProcessContainer;
         this.system = system;
         populateNetworkComboBox();
@@ -587,7 +587,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
 
     private void jButtonClickImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClickImageActionPerformed
         // TODO add your handling code here:
-    /*    if (!isRunning) {
+        if (!isRunning) {
             isRunning = true;
             new VideoFeedTaker().start();
         } else {
@@ -609,7 +609,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
 //        webcam.open();
 //        
 //        webcam.close();
-        */
+
     }//GEN-LAST:event_jButtonClickImageActionPerformed
 
 
@@ -752,7 +752,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
     }
 
     class VideoFeedTaker extends Thread {
-/*
+
         @Override
         public void run() {
 //            webcam.setViewSize(new Dimension(176, 144));
@@ -773,7 +773,6 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
             }
             //boolean close = webcam.close();
         }
-*/
     }
 
 }
