@@ -132,7 +132,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(2, 55, 108));
         jLabel1.setText("Manage Enterprise Admin");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(207, 68, 439, 47);
+        jLabel1.setBounds(290, 80, 439, 47);
 
         btnBack.setBackground(new java.awt.Color(2, 55, 108));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -171,14 +171,14 @@ public class ManageEnterpriseAdmin extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tblEnterpriseAdmin);
 
         jPanel1.add(jScrollPane1);
-        jScrollPane1.setBounds(10, 149, 849, 201);
+        jScrollPane1.setBounds(90, 160, 849, 201);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(2, 55, 108));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Network");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(210, 410, 130, 40);
+        jLabel2.setBounds(290, 420, 130, 40);
 
         btnAddEnterpriseAdmin.setBackground(new java.awt.Color(2, 55, 108));
         btnAddEnterpriseAdmin.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -190,7 +190,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAddEnterpriseAdmin);
-        btnAddEnterpriseAdmin.setBounds(410, 800, 250, 50);
+        btnAddEnterpriseAdmin.setBounds(490, 810, 250, 50);
 
         btnCancel.setBackground(new java.awt.Color(2, 55, 108));
         btnCancel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -202,7 +202,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnCancel);
-        btnCancel.setBounds(410, 880, 250, 50);
+        btnCancel.setBounds(490, 890, 250, 50);
 
         comboBoxNetwork.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         comboBoxNetwork.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -212,14 +212,14 @@ public class ManageEnterpriseAdmin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(comboBoxNetwork);
-        comboBoxNetwork.setBounds(410, 410, 250, 40);
+        comboBoxNetwork.setBounds(490, 420, 250, 40);
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(2, 55, 108));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Enterprise");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(200, 460, 140, 40);
+        jLabel3.setBounds(280, 470, 140, 40);
 
         comboBoxEnterprise.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         comboBoxEnterprise.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -229,55 +229,55 @@ public class ManageEnterpriseAdmin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(comboBoxEnterprise);
-        comboBoxEnterprise.setBounds(410, 460, 250, 40);
+        comboBoxEnterprise.setBounds(490, 470, 250, 40);
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(2, 55, 108));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Name");
         jPanel1.add(jLabel4);
-        jLabel4.setBounds(220, 580, 120, 40);
+        jLabel4.setBounds(300, 590, 120, 40);
 
         txtName.setBackground(new java.awt.Color(225, 225, 225));
         txtName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel1.add(txtName);
-        txtName.setBounds(410, 580, 250, 40);
+        txtName.setBounds(490, 590, 250, 40);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(2, 55, 108));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Username");
         jPanel1.add(jLabel5);
-        jLabel5.setBounds(200, 640, 140, 40);
+        jLabel5.setBounds(280, 650, 140, 40);
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(2, 55, 108));
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Password");
         jPanel1.add(jLabel6);
-        jLabel6.setBounds(200, 700, 140, 40);
+        jLabel6.setBounds(280, 710, 140, 40);
 
         txtUsername.setBackground(new java.awt.Color(225, 225, 225));
         txtUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel1.add(txtUsername);
-        txtUsername.setBounds(410, 640, 250, 40);
+        txtUsername.setBounds(490, 650, 250, 40);
 
         txtPassword.setBackground(new java.awt.Color(225, 225, 225));
         txtPassword.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel1.add(txtPassword);
-        txtPassword.setBounds(410, 700, 250, 40);
+        txtPassword.setBounds(490, 710, 250, 40);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(2, 55, 108));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel7.setText("Role");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(228, 509, 110, 40);
+        jLabel7.setBounds(310, 520, 110, 40);
 
         comboBoxRole.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         comboBoxRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jPanel1.add(comboBoxRole);
-        comboBoxRole.setBounds(410, 510, 250, 40);
+        comboBoxRole.setBounds(490, 520, 250, 40);
 
         btnDelete.setBackground(new java.awt.Color(2, 55, 108));
         btnDelete.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -289,11 +289,11 @@ public class ManageEnterpriseAdmin extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnDelete);
-        btnDelete.setBounds(739, 356, 120, 40);
+        btnDelete.setBounds(820, 370, 120, 40);
 
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/entry_administrator.png"))); // NOI18N
         jPanel1.add(jLabel8);
-        jLabel8.setBounds(980, 20, 680, 630);
+        jLabel8.setBounds(1000, 30, 680, 630);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
