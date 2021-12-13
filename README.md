@@ -3,7 +3,7 @@
 ## Description
 To provide a common platform for a Charity ecosystem extended to multiple cities (Network) for Donors, CSRs, Charities/ NGOs and the Admin management team
 This application is also used to manage the funds, donation kits and managing the charitable events including fundraising
-There is a level of escalation and management for each of the transactions and work request that are requested.
+There is a level of escalation and management for each of the transactions and work request that are requested
 
 ## Problem Statement:
 “Givers Never Lack!”, with this motto in mind we have created a scalable application that tackles the problem of managing funds and donations, all under a single platform.
@@ -24,4 +24,4 @@ Managing various Organizations under Enterprises can impose a great challenge es
 ## Project Group Members Details :-
 - Nandita Sharma (NUID - 002954757)
 - Prabhansh Sharma (NUID - 002198201)
-- Rajiv Ranjan Sahu (NUID - 002101619) 
+- Rajiv Ranjan Sahu (NUID - 002101619)
