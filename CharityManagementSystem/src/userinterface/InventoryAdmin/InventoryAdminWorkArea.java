@@ -15,7 +15,9 @@ import Business.Role.EducationKitInventoryManagerRole;
 import Business.Role.Role;
 import Business.UserAccount.UserAccount;
 import Business.WorkQueue.AnimalWelfareKitInventoryRequest;
+import Business.WorkQueue.DisasterWelfareKitInventoryRequest;
 import Business.WorkQueue.DonorRegistrationRequest;
+import Business.WorkQueue.EducationWelfareKitInventoryRequest;
 import Business.WorkQueue.WorkQueue;
 import Business.WorkQueue.WorkRequest;
 import java.text.SimpleDateFormat;
@@ -245,7 +247,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblWorkQueue);
 
-        jButton1.setText("Approve");
+        jButton1.setText("Accept");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -264,7 +266,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 613, Short.MAX_VALUE)
+                .addGap(0, 622, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(39, 39, 39)
                 .addComponent(jButton1)
@@ -524,10 +526,11 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
 
         model.setRowCount(0);
 
-        if (enterprise.getWorkQueue() == null) {
-            enterprise.setWorkQueue(new WorkQueue());
-        }
-        for (WorkRequest workRequest : enterprise.getWorkQueue().getWorkRequestList()) {
+        for(Organization org : enterprise.getOrganizationDirectory().getOrganizationList()){
+            if (org.getWorkQueue() == null) {
+                org.setWorkQueue(new WorkQueue());
+            }
+            for (WorkRequest workRequest : org.getWorkQueue().getWorkRequestList()) {
 
             if (workRequest instanceof AnimalWelfareKitInventoryRequest) {
                 Object[] row = new Object[model.getColumnCount()];
@@ -541,7 +544,34 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
 
                 model.addRow(row);
             }
+            else if (workRequest instanceof DisasterWelfareKitInventoryRequest) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = workRequest;
+                row[1] = formatter.format(((DisasterWelfareKitInventoryRequest) workRequest).getRequestDate());
+                row[2] = ((DisasterWelfareKitInventoryRequest) workRequest).getOrgType();
+                row[3] = ((DisasterWelfareKitInventoryRequest) workRequest).getQuanity();
+                row[4] = ((DisasterWelfareKitInventoryRequest) workRequest).getDonorName();
+                row[5] = ((DisasterWelfareKitInventoryRequest) workRequest).getDonorType();
+                row[6] = ((DisasterWelfareKitInventoryRequest) workRequest).getStatus();
+
+                model.addRow(row);
+            }
+            else if (workRequest instanceof EducationWelfareKitInventoryRequest) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = workRequest;
+                row[1] = formatter.format(((EducationWelfareKitInventoryRequest) workRequest).getRequestDate());
+                row[2] = ((EducationWelfareKitInventoryRequest) workRequest).getOrgType();
+                row[3] = ((EducationWelfareKitInventoryRequest) workRequest).getQuanity();
+                row[4] = ((EducationWelfareKitInventoryRequest) workRequest).getDonorName();
+                row[5] = ((EducationWelfareKitInventoryRequest) workRequest).getDonorType();
+                row[6] = ((EducationWelfareKitInventoryRequest) workRequest).getStatus();
+
+                model.addRow(row);
+            }
         }
+    }
+        
+        
 
     }
 }

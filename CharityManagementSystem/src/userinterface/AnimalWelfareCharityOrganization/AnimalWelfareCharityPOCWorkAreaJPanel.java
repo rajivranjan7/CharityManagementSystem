@@ -274,7 +274,7 @@ public class AnimalWelfareCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             WorkRequest request = (WorkRequest) tblFunds.getValueAt(selectedRow, 0);
-            if (request.getStatus().equalsIgnoreCase("Requested")) {
+            if (request.getStatus().equalsIgnoreCase("Donated")) {
                 JOptionPane.showMessageDialog(null, "Please wait until Finance Team acceptance.");
                 return;
             }
@@ -290,7 +290,8 @@ public class AnimalWelfareCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
                 if (request instanceof CommerceFinanceRequest) {
                     CommerceFinanceRequest fundRequest = (CommerceFinanceRequest) tblFunds.getValueAt(selectedRow, 0);
                     double amount = fundRequest.getAmount();
-                    animalWelfareCharityOrg.addFunds(amount);
+                    double totalFunds = animalWelfareCharityOrg.getTotalFunds() + amount;
+                    animalWelfareCharityOrg.setTotalFunds(totalFunds);
                     txtTotalFunds.setText(String.valueOf(animalWelfareCharityOrg.getTotalFunds()));
                 }
                 request.setReceiver(account);
@@ -310,8 +311,8 @@ public class AnimalWelfareCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             WorkRequest request = (WorkRequest) tblFunds.getValueAt(selectedRow, 0);
-            if (request.getStatus().equalsIgnoreCase("Requested")) {
-                JOptionPane.showMessageDialog(null, "Please wait until Finance Team acceptance.");
+            if (request.getStatus().equalsIgnoreCase("Donated")) {
+                JOptionPane.showMessageDialog(null, "Please wait until Finance Team acceptance");
                 return;
             }
             else if (request.getStatus().equalsIgnoreCase("Completed")) {
@@ -375,6 +376,32 @@ public class AnimalWelfareCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
 
     private void btnReject1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReject1ActionPerformed
         // TODO add your handling code here:
+        int selectedRow = tblKits.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            WorkRequest request = (WorkRequest) tblKits.getValueAt(selectedRow, 0);
+            if (request.getStatus().equalsIgnoreCase("Donated")) {
+                JOptionPane.showMessageDialog(null, "Please wait until Inventory Team acceptance");
+                return;
+            }
+            else if (request.getStatus().equalsIgnoreCase("Completed")) {
+                JOptionPane.showMessageDialog(null, "Request is already completed.");
+                return;
+            }
+            else if (request.getStatus().equalsIgnoreCase("Rejected")) {
+                JOptionPane.showMessageDialog(null, "Request is already rejected.");
+                return;
+            }
+            else {
+                request.setReceiver(account);
+                request.setStatus("Rejected");
+                populateTable();
+                JOptionPane.showMessageDialog(null, "Request is rejected");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Choose a request to reject.");
+            return;
+        }
     }//GEN-LAST:event_btnReject1ActionPerformed
 
 

@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import Business.Role.FinanceAdminRole;
 
 /**
  *
@@ -355,7 +356,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JFrame {
                     }
                 } 
                 else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.FinanceManagementDirectory) {
-                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new CommerceFinanceTeamLedgerRole());
+                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new FinanceAdminRole());
                 } 
                 else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.InventoryManagementDirectory) {
                     for(Role role : enterprise.getSupportedRole()){

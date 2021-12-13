@@ -106,40 +106,45 @@ public class DonateFunds extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(121, 121, 121)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel5))
-                        .addGap(186, 186, 186)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboBoxCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtPurpose, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(comboBoxOrg, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(259, 259, 259)
-                        .addComponent(jLabel1)))
-                .addContainerGap(133, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jButton2))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(270, 270, 270)
                         .addComponent(btnDonate)))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(152, 152, 152)
+                                .addComponent(jLabel2))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(245, 245, 245)
+                                .addComponent(jLabel1)))
+                        .addGap(159, 159, 159))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(177, 177, 177)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel3))
+                        .addGap(87, 87, 87)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(comboBoxOrg, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtAmount)
+                            .addComponent(comboBoxCurrency, 0, 264, Short.MAX_VALUE)
+                            .addComponent(txtPurpose))))
+                .addContainerGap(133, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addComponent(jButton2)
-                .addGap(13, 13, 13)
+                .addGap(15, 15, 15)
                 .addComponent(jLabel1)
-                .addGap(44, 44, 44)
+                .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(comboBoxOrg, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
@@ -152,9 +157,9 @@ public class DonateFunds extends javax.swing.JFrame {
                     .addComponent(jLabel5)
                     .addComponent(comboBoxCurrency, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(80, 80, 80)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtAmount, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(66, 66, 66)
                 .addComponent(btnDonate)
                 .addGap(63, 63, 63))
@@ -213,7 +218,22 @@ public class DonateFunds extends javax.swing.JFrame {
             txtAmount.setBorder(BorderFactory.createLineBorder(Color.black));
 
             CommerceFinanceRequest commerceFinanceRequest = new CommerceFinanceRequest();
-            commerceFinanceRequest.setAmount(Double.parseDouble(txtAmount.getText()));
+            if(comboBoxCurrency.getSelectedItem().equals("European Euro (EUR)")){
+                commerceFinanceRequest.setAmount(Double.parseDouble(txtAmount.getText())*1.13);
+            }
+            else if(comboBoxCurrency.getSelectedItem().equals("British Pound (GBP)")){
+                commerceFinanceRequest.setAmount(Double.parseDouble(txtAmount.getText())*1.32);
+            }
+            else if(comboBoxCurrency.getSelectedItem().equals("Canadian Dollar (CAD)")){
+                commerceFinanceRequest.setAmount(Double.parseDouble(txtAmount.getText())*0.78);
+            }
+            else if(comboBoxCurrency.getSelectedItem().equals("Indian rupee (INR)")){
+                commerceFinanceRequest.setAmount(Double.parseDouble(txtAmount.getText())*0.013);
+            }
+            else{
+                commerceFinanceRequest.setAmount(Double.parseDouble(txtAmount.getText()));
+            }
+            
             commerceFinanceRequest.setDonorName(account.getEmployee().getName());
             commerceFinanceRequest.setDonorType(account.getRole().toString());
             commerceFinanceRequest.setStatus("Donated");
@@ -238,6 +258,8 @@ public class DonateFunds extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Thank you for your donation!");
             txtAmount.setText("");
             comboBoxOrg.setSelectedIndex(0);
+            txtPurpose.setText("");
+            comboBoxCurrency.setSelectedIndex(0);
             close();
         }
     }//GEN-LAST:event_btnDonateActionPerformed

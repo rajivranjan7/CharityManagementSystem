@@ -13,8 +13,8 @@ import Business.Utilities.Validation;
 import Business.WorkQueue.DonorRegistrationRequest;
 import Business.WorkQueue.WorkQueue;
 import Business.WorkQueue.WorkRequest;
-import com.github.sarxos.webcam.Webcam;
-import com.github.sarxos.webcam.WebcamResolution;
+//import com.github.sarxos.webcam.Webcam;
+//import com.github.sarxos.webcam.WebcamResolution;
 //import Business.WorkQueue.UserRegistrationRequest;
 
 import java.awt.event.ActionListener;
