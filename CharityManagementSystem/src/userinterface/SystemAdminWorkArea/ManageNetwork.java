@@ -30,6 +30,7 @@ public class ManageNetwork extends javax.swing.JFrame {
         this.container = container;
         this.system = system;
         populateNetworkTable();
+        setLocationRelativeTo(null);
     }
 
     private void populateNetworkTable() {
@@ -61,19 +62,34 @@ public class ManageNetwork extends javax.swing.JFrame {
         txtNetwork = new javax.swing.JTextField();
         btnAddNetwork = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Marker Felt", 1, 36)); // NOI18N
-        jLabel1.setText("Manage Network");
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setMinimumSize(new java.awt.Dimension(900, 900));
+        jPanel1.setLayout(null);
 
+        jLabel1.setFont(new java.awt.Font("Marker Felt", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel1.setText("Manage Network");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(275, 74, 287, 47);
+
+        btnBack.setBackground(new java.awt.Color(2, 55, 108));
+        btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/Back Arrow.png"))); // NOI18N
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        jPanel1.add(btnBack);
+        btnBack.setBounds(10, 17, 150, 60);
 
+        tblNetwork.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108)));
         tblNetwork.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -93,79 +109,51 @@ public class ManageNetwork extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tblNetwork.setGridColor(new java.awt.Color(205, 217, 242));
         jScrollPane1.setViewportView(tblNetwork);
         if (tblNetwork.getColumnModel().getColumnCount() > 0) {
             tblNetwork.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        jLabel2.setText("Enter new Network name");
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(138, 148, 604, 201);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setText("Enter new Network:");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(173, 418, 250, 22);
+
+        txtNetwork.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel1.add(txtNetwork);
+        txtNetwork.setBounds(438, 415, 201, 30);
+
+        btnAddNetwork.setBackground(new java.awt.Color(2, 55, 108));
+        btnAddNetwork.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnAddNetwork.setForeground(new java.awt.Color(255, 255, 255));
         btnAddNetwork.setText("Add Network");
         btnAddNetwork.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddNetworkActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAddNetwork);
+        btnAddNetwork.setBounds(435, 518, 180, 50);
 
+        btnCancel.setBackground(new java.awt.Color(2, 55, 108));
+        btnCancel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnCancel.setForeground(new java.awt.Color(255, 255, 255));
         btnCancel.setText("Cancel");
         btnCancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnCancelActionPerformed(evt);
             }
         });
+        jPanel1.add(btnCancel);
+        btnCancel.setBounds(217, 518, 180, 50);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnBack)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addGap(309, 309, 309))))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(138, 138, 138)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 604, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(208, 208, 208)
-                            .addComponent(jLabel2)
-                            .addGap(85, 85, 85)
-                            .addComponent(txtNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnCancel)
-                        .addGap(38, 38, 38)
-                        .addComponent(btnAddNetwork)
-                        .addGap(202, 202, 202)))
-                .addGap(0, 129, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addComponent(btnBack)
-                .addGap(32, 32, 32)
-                .addComponent(jLabel1)
-                .addGap(27, 27, 27)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNetwork, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(81, 81, 81)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddNetwork)
-                    .addComponent(btnCancel))
-                .addContainerGap(95, Short.MAX_VALUE))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/network.jpg"))); // NOI18N
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(640, -30, 1270, 730);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -251,6 +239,7 @@ public class ManageNetwork extends javax.swing.JFrame {
     private javax.swing.JButton btnCancel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblNetwork;
