@@ -24,6 +24,8 @@ import Business.Role.InventoryAdminRole;
 import Business.Role.OrphanageCharityPOCRole;
 import static Business.Role.Role.RoleType.InventoryAdminRole;
 import Business.Role.SystemAdminRole;
+import Business.Role.FinanceAdminRole;
+import userinterface.FinanceTeam.CommerceFinanceTeamAdminWorkAreaJPanel;
 
 //import Business.Organization;
 import Business.UserAccount.UserAccount;
@@ -325,6 +327,10 @@ public class MainJFrame extends javax.swing.JFrame {
             }
             else if(userAccount.getRole() instanceof EducationKitInventoryManagerRole) {
                 EducationKitInventoryManagerWorkAreaJPanel panel = new EducationKitInventoryManagerWorkAreaJPanel(userAccount,enterprise,organization);
+                jSplitPane1.setRightComponent(panel);
+            }
+            else if(userAccount.getRole() instanceof FinanceAdminRole) {
+                CommerceFinanceTeamAdminWorkAreaJPanel panel = new CommerceFinanceTeamAdminWorkAreaJPanel(container, system, network, enterprise, userAccount);
                 jSplitPane1.setRightComponent(panel);
             }
             else if(userAccount.getRole() instanceof CommerceFinanceTeamLedgerRole) {

@@ -35,7 +35,8 @@ public abstract class Role {
         DonorIndividualRole("Donor"),
         CharityAdminRole("Charity Admin"),
         DonorAdminRole("Donar Admin"),
-        InventoryAdminRole("Inventory Admin");
+        InventoryAdminRole("Inventory Admin"),
+        FinanceAdminRole("Finance Admin");
 
         private String value;
 

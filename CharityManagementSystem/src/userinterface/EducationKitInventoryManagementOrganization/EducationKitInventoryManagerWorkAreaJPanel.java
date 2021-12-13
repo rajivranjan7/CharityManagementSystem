@@ -190,8 +190,8 @@ public class EducationKitInventoryManagerWorkAreaJPanel extends javax.swing.JPan
 
         if (selectedRow >= 0) {
             WorkRequest request = (WorkRequest) tblKits.getValueAt(selectedRow, 0);
-            if (request.getStatus().equalsIgnoreCase("Requested")) {
-                JOptionPane.showMessageDialog(null, "Please wait until Finance Team acceptance.");
+            if (request.getStatus().equalsIgnoreCase("Forwarded to Charity Organization")) {
+                JOptionPane.showMessageDialog(null, "Request is already forwarded to Charity Organization");
                 return;
             }
             else if (request.getStatus().equalsIgnoreCase("Completed")) {
