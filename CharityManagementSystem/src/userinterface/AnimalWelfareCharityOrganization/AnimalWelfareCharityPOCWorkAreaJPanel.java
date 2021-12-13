@@ -355,9 +355,9 @@ public class AnimalWelfareCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
                     AnimalWelfareKitInventoryRequest fundRequest = (AnimalWelfareKitInventoryRequest) tblKits.getValueAt(selectedRow, 0);
                     
                     int quantity = fundRequest.getQuanity();
-                    int totalKits = animalWelfareInventoryOrg.getTotalKits() + quantity;
-                    animalWelfareInventoryOrg.setTotalKits(totalKits);
-                    txtTotalKits.setText(String.valueOf(animalWelfareInventoryOrg.getTotalKits()));
+                    int totalKits = animalWelfareCharityOrg.getTotalKits() + quantity;
+                    animalWelfareCharityOrg.setTotalKits(totalKits);
+                    txtTotalKits.setText(String.valueOf(animalWelfareCharityOrg.getTotalKits()));
                 }
                 request.setReceiver(account);
                 request.setStatus("Completed");

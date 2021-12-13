@@ -31,6 +31,12 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
         this.account = account;
         this.network = network;
         this.enterprise = enterprise;
+        String firstLetter = account.getEmployee().getName().substring(0, 1);
+        String remainingLetters = account.getEmployee().getName().substring(1, account.getEmployee().getName().length());
+
+        firstLetter = firstLetter.toUpperCase();
+        String name = firstLetter + remainingLetters;
+        lblDonarName.setText("Welcome "+ name);
     }
 
     /**
