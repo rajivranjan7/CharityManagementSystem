@@ -5,6 +5,7 @@
 package Business.Enterprise;
 
 import Business.Role.CommerceFinanceTeamLedgerRole;
+import Business.Role.FinanceAdminRole;
 import Business.Role.Role;
 import java.util.ArrayList;
 
@@ -21,6 +22,7 @@ public class FinanceManagementDirectory extends Enterprise {
     @Override
     public ArrayList<Role> getSupportedRole() {
         roles = new ArrayList<Role>();
+        roles.add(new FinanceAdminRole());
         roles.add(new CommerceFinanceTeamLedgerRole());
         return roles;
     }

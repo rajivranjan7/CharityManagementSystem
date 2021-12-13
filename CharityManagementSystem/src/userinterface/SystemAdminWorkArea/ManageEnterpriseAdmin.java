@@ -20,6 +20,7 @@ import Business.Role.DonorIndividualRole;
 import Business.Role.EducationCharityPOCRole;
 import Business.Role.EventManagementCoordinatorRole;
 import Business.Role.EventManagementVolunteerRole;
+import Business.Role.FinanceAdminRole;
 import Business.Role.OrphanageCharityPOCRole;
 import Business.Role.Role;
 import Business.Role.Role.RoleType;
@@ -355,7 +356,7 @@ public class ManageEnterpriseAdmin extends javax.swing.JFrame {
                     }
                 } 
                 else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.FinanceManagementDirectory) {
-                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new CommerceFinanceTeamLedgerRole());
+                    account = enterprise.getUserAccountDirectory().createUserAccount(username, password, employee, new FinanceAdminRole());
                 } 
                 else if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.InventoryManagementDirectory) {
                     for(Role role : enterprise.getSupportedRole()){

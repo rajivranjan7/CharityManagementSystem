@@ -7,7 +7,6 @@ package userinterface.FinanceTeam;
 import Business.EcoSystem;
 import Business.Employee.Employee;
 import Business.Enterprise.Enterprise;
-import Business.Enterprise.Enterprise.EnterpriseType;
 import Business.Network.Network;
 import Business.Organization.Organization;
 import Business.Role.CommerceFinanceTeamLedgerRole;
@@ -27,7 +26,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author prabs
  */
-public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel {
+public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
     
     private static JPanel container;
     private static EcoSystem system;
@@ -38,7 +37,7 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
     /**
      * Creates new form LedgerFinanceTeamWorkAreaJPanel
      */
-    public CommerceFinanceTeamLedgerWorkAreaJPanel(JPanel container, EcoSystem system, Network network, Enterprise enterprise, UserAccount account) {
+    public CommerceFinanceTeamAdminWorkAreaJPanel(JPanel container, EcoSystem system, Network network, Enterprise enterprise, UserAccount account) {
         initComponents();
         
         this.container = container;
@@ -46,6 +45,8 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
         this.network = network;
         this.enterprise = enterprise;
         this.account = account;
+        populateOrganizationTable();
+        populateOrganizationTypes();
         populateTable();
     }
 
@@ -59,13 +60,171 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
+        jPanel1 = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblOrganizationList = new javax.swing.JTable();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        comboBoxOrgType = new javax.swing.JComboBox();
+        txtUsername = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        btnAddOrganization = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        comboBoxRole = new javax.swing.JComboBox();
+        txtName = new javax.swing.JTextField();
+        txtPassword = new javax.swing.JTextField();
+        btnDelete = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         tblFunds = new javax.swing.JTable();
         jLabelIncomingKit = new javax.swing.JLabel();
         btnAccept = new javax.swing.JButton();
         btnReject = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+
+        tblOrganizationList.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Organization Name", "Organization Type", "Username", "Password"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(tblOrganizationList);
+
+        jLabel5.setText("Organization List");
+
+        jLabel2.setText("Organization Type");
+
+        comboBoxOrgType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        comboBoxOrgType.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboBoxOrgTypeActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setText("Organization Name");
+
+        btnAddOrganization.setText("Add Organization");
+        btnAddOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddOrganizationActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("Username");
+
+        jLabel6.setText("Password");
+
+        jLabel7.setText("Role");
+
+        comboBoxRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+
+        jLabel9.setFont(new java.awt.Font("Marker Felt", 1, 36)); // NOI18N
+        jLabel9.setText("Welcome Finance Admin");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane1)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel5)
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(241, 241, 241)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel7)
+                            .addComponent(jLabel2))
+                        .addGap(98, 98, 98)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(comboBoxOrgType, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(comboBoxRole, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                                .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                                .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)))
+                        .addGap(0, 842, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnDelete)))
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(340, 340, 340)
+                .addComponent(btnAddOrganization)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(425, 425, 425))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addComponent(jLabel9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnDelete)
+                .addGap(20, 20, 20)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(comboBoxOrgType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel7))
+                    .addComponent(comboBoxRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(54, 54, 54)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(55, 55, 55)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(52, 52, 52)
+                .addComponent(btnAddOrganization)
+                .addContainerGap(88, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Manage Organization", jPanel1);
 
         tblFunds.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -105,8 +264,8 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Marker Felt", 1, 36)); // NOI18N
-        jLabel2.setText("Welcome Finance Ledger");
+        jLabel8.setFont(new java.awt.Font("Marker Felt", 1, 36)); // NOI18N
+        jLabel8.setText("Welcome Finance Admin");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -125,17 +284,17 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
                         .addComponent(jLabelIncomingKit, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(587, 587, 587)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel8)
+                .addGap(444, 444, 444))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGap(51, 51, 51)
-                .addComponent(jLabel2)
-                .addGap(56, 56, 56)
+                .addComponent(jLabel8)
+                .addGap(32, 32, 32)
                 .addComponent(jLabelIncomingKit, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -143,10 +302,8 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(430, Short.MAX_VALUE))
+                .addContainerGap(462, Short.MAX_VALUE))
         );
-
-        jLabel2.getAccessibleContext().setAccessibleName("Welcome Finance Ledger");
 
         jTabbedPane1.addTab("Manage Work Requests", jPanel3);
 
@@ -163,9 +320,68 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 885, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 893, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void comboBoxOrgTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxOrgTypeActionPerformed
+        // TODO add your handling code here:
+        Organization.Type type = (Organization.Type) comboBoxOrgType.getSelectedItem();
+        if(type == Organization.Type.CommerceFinanaceManagementOrganization){
+            comboBoxRole.removeAllItems();
+            comboBoxRole.addItem(Role.RoleType.CommerceFinanceTeamLedgerRole);
+        }
+    }//GEN-LAST:event_comboBoxOrgTypeActionPerformed
+
+    private void btnAddOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrganizationActionPerformed
+        // TODO add your handling code here:
+        String name = txtUsername.getText().trim();
+        Organization.Type type = (Organization.Type) comboBoxOrgType.getSelectedItem();
+        if(!name.isEmpty()){
+            Organization org = enterprise.getOrganizationDirectory().createOrganization(type, txtName.getText());
+            if (type == Organization.Type.CommerceFinanaceManagementOrganization) {
+                System.out.println("CommerceFinanaceManagementOrganization");
+                if(org.getType() == Organization.Type.CommerceFinanaceManagementOrganization){
+                    Employee emp = org.getEmployeeDirectory().createEmployee(txtName.getText());
+                    UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(txtUsername.getText(), txtPassword.getText(), emp, new CommerceFinanceTeamLedgerRole());
+
+                }
+            }
+
+            JOptionPane.showMessageDialog(null, "Organization Successfully Created");
+            txtUsername.setText("");
+            txtPassword.setText("");
+            txtName.setText("");
+            comboBoxOrgType.setSelectedIndex(0);
+
+        } else{
+            JOptionPane.showMessageDialog(null, "Enter Organization name");
+        }
+        populateOrganizationTable();
+    }//GEN-LAST:event_btnAddOrganizationActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        boolean flag = true;
+        int selectedRow = tblOrganizationList.getSelectedRow();
+        if(selectedRow<0){
+            flag=false;
+            JOptionPane.showMessageDialog(this, "Please select a row to delete!");
+        }
+        if(flag){
+            DefaultTableModel tableModel = (DefaultTableModel) tblOrganizationList.getModel();
+            Object org = tableModel.getValueAt(selectedRow, 0 );
+            Organization.Type type = (Organization.Type) tableModel.getValueAt(selectedRow, 1 );
+            ArrayList<Organization> orgList = enterprise.getOrganizationDirectory().getOrganizationList();
+            for(int i = 0; i < enterprise.getOrganizationDirectory().getOrganizationList().size(); i++){
+                if((orgList.get(i).getName() == String.valueOf(org)) && (orgList.get(i).getType() == type)){
+                    enterprise.getOrganizationDirectory().getOrganizationList().remove(i);
+                    populateOrganizationTable();
+                    break;
+                }
+            }
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         // TODO add your handling code here:
@@ -223,6 +439,7 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
                 request.setReceiver(account);
                 request.setStatus("Rejected");
                 populateTable();
+                populateRespectiveCharityWorkQueue();
                 JOptionPane.showMessageDialog(null, "Request is rejected");
             }
         } else {
@@ -234,16 +451,58 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccept;
+    private javax.swing.JButton btnAddOrganization;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnReject;
+    private javax.swing.JComboBox comboBoxOrgType;
+    private javax.swing.JComboBox comboBoxRole;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JLabel jLabelIncomingKit;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable tblFunds;
+    private javax.swing.JTable tblOrganizationList;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtPassword;
+    private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 
-   
+    private void populateOrganizationTable() {
+        DefaultTableModel model = (DefaultTableModel) tblOrganizationList.getModel();
+        
+        model.setRowCount(0);
+        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if(e.getName() == enterprise.getName()){
+                for(Organization org : e.getOrganizationDirectory().getOrganizationList()){
+                Object[] row = new Object[4];
+                row[0] = org.getName();
+                row[1] = org.getType();
+                for(UserAccount ua : org.getUserAccountDirectory().getUserAccountList()){
+                    if(ua.getRole().toString().equals(Role.RoleType.CommerceFinanceTeamLedgerRole.toString())){
+                        row[2] = ua.getUsername();
+                        row[3] = ua.getPassword();
+                    }
+                }
+                model.addRow(row);
+            }
+            }
+        }
+    }
+
+    private void populateOrganizationTypes() {
+        comboBoxOrgType.removeAllItems();
+        comboBoxOrgType.addItem(Organization.Type.CommerceFinanaceManagementOrganization);     
+    }
     
     public void populateTable() {
         
@@ -274,7 +533,7 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
     }
 
     }
-
+    
     private void populateRespectiveCharityWorkQueue() {
         for(Enterprise ent2 : network.getEnterpriseDirectory().getEnterpriseList()){
                          if(ent2.getEnterpriseType() ==  Enterprise.EnterpriseType.FinanceManagementDirectory){

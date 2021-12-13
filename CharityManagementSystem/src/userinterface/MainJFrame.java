@@ -20,6 +20,7 @@ import Business.Role.EducationKitInventoryManagerRole;
 import Business.Role.DisasterReliefCharityPOCRole;
 import Business.Role.EducationCharityPOCRole;
 import Business.Role.AnimalWelfareCharityPOCRole;
+import Business.Role.FinanceAdminRole;
 import Business.Role.InventoryAdminRole;
 import Business.Role.OrphanageCharityPOCRole;
 import static Business.Role.Role.RoleType.InventoryAdminRole;
@@ -39,6 +40,7 @@ import userinterface.DonorRegistration.DonorRegistrationJPanel;
 import userinterface.Donors.DonorAdminWorkArea;
 import userinterface.EducationCharityOrganization.EducationCharityPOCWorkAreaJPanel;
 import userinterface.EducationKitInventoryManagementOrganization.EducationKitInventoryManagerWorkAreaJPanel;
+import userinterface.FinanceTeam.CommerceFinanceTeamAdminWorkAreaJPanel;
 import userinterface.FinanceTeam.CommerceFinanceTeamLedgerWorkAreaJPanel;
 import userinterface.InventoryAdmin.InventoryAdminWorkArea;
 import userinterface.OrphanageCharityOrganization.OrphanageCharityPOCWorkAreaJPanel;
@@ -336,6 +338,10 @@ public class MainJFrame extends javax.swing.JFrame {
             }
             else if(userAccount.getRole() instanceof EducationKitInventoryManagerRole) {
                 EducationKitInventoryManagerWorkAreaJPanel panel = new EducationKitInventoryManagerWorkAreaJPanel(userAccount,enterprise,organization);
+                jSplitPane1.setRightComponent(panel);
+            }
+            else if(userAccount.getRole() instanceof FinanceAdminRole) {
+                CommerceFinanceTeamAdminWorkAreaJPanel panel = new CommerceFinanceTeamAdminWorkAreaJPanel(container, system, network, enterprise, userAccount);
                 jSplitPane1.setRightComponent(panel);
             }
             else if(userAccount.getRole() instanceof CommerceFinanceTeamLedgerRole) {
