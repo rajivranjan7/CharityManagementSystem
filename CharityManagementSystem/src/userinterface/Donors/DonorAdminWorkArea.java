@@ -236,6 +236,11 @@ public class DonorAdminWorkArea extends javax.swing.JPanel {
             }
         });
         jScrollPane2.setViewportView(tblWorkQueue);
+        if (tblWorkQueue.getColumnModel().getColumnCount() > 0) {
+            tblWorkQueue.getColumnModel().getColumn(0).setMinWidth(0);
+            tblWorkQueue.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblWorkQueue.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         btnProcess.setText("Process");
         btnProcess.addActionListener(new java.awt.event.ActionListener() {

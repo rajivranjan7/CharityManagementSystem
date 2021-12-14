@@ -246,6 +246,11 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
         jScrollPane3.setViewportView(tblFunds);
+        if (tblFunds.getColumnModel().getColumnCount() > 0) {
+            tblFunds.getColumnModel().getColumn(0).setMinWidth(0);
+            tblFunds.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblFunds.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         jLabelIncomingKit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelIncomingKit.setText("Incoming Funds");
