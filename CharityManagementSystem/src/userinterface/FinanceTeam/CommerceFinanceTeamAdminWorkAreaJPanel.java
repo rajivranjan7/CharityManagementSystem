@@ -16,30 +16,47 @@ import Business.WorkQueue.AnimalWelfareKitInventoryRequest;
 import Business.WorkQueue.CommerceFinanceRequest;
 import Business.WorkQueue.WorkQueue;
 import Business.WorkQueue.WorkRequest;
+import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
 
 /**
  *
  * @author prabs
  */
 public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
-    
+
     private static JPanel container;
     private static EcoSystem system;
     private static Network network;
     private static Enterprise enterprise;
     private static UserAccount account;
 
+    JFreeChart jchart;
+
     /**
      * Creates new form LedgerFinanceTeamWorkAreaJPanel
      */
     public CommerceFinanceTeamAdminWorkAreaJPanel(JPanel container, EcoSystem system, Network network, Enterprise enterprise, UserAccount account) {
         initComponents();
-        
+
         this.container = container;
         this.system = system;
         this.network = network;
@@ -48,6 +65,7 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
         populateOrganizationTable();
         populateOrganizationTypes();
         populateTable();
+        populateBarGraph();
     }
 
     /**
@@ -84,6 +102,9 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
         btnAccept = new javax.swing.JButton();
         btnReject = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
+        jButtonDownloadReport = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanelReport = new javax.swing.JPanel();
 
         tblOrganizationList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -272,6 +293,32 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
         jLabel8.setFont(new java.awt.Font("Marker Felt", 1, 36)); // NOI18N
         jLabel8.setText("Welcome Finance Admin");
 
+        jButtonDownloadReport.setText("Download");
+        jButtonDownloadReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDownloadReportActionPerformed(evt);
+            }
+        });
+
+        jPanelReport.setLayout(new javax.swing.BoxLayout(jPanelReport, javax.swing.BoxLayout.LINE_AXIS));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelReport, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelReport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -293,6 +340,12 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel8)
                 .addGap(444, 444, 444))
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(261, 261, 261)
+                .addComponent(jButtonDownloadReport)
+                .addGap(49, 49, 49)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,7 +360,14 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(462, Short.MAX_VALUE))
+                .addGap(32, 32, 32)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonDownloadReport)
+                        .addGap(211, 211, 211)))
+                .addGap(87, 87, 87))
         );
 
         jTabbedPane1.addTab("Manage Work Requests", jPanel3);
@@ -332,7 +392,7 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
     private void comboBoxOrgTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxOrgTypeActionPerformed
         // TODO add your handling code here:
         Organization.Type type = (Organization.Type) comboBoxOrgType.getSelectedItem();
-        if(type == Organization.Type.CommerceFinanaceManagementOrganization){
+        if (type == Organization.Type.CommerceFinanaceManagementOrganization) {
             comboBoxRole.removeAllItems();
             comboBoxRole.addItem(Role.RoleType.CommerceFinanceTeamLedgerRole);
         }
@@ -342,11 +402,11 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         String name = txtUsername.getText().trim();
         Organization.Type type = (Organization.Type) comboBoxOrgType.getSelectedItem();
-        if(!name.isEmpty()){
+        if (!name.isEmpty()) {
             Organization org = enterprise.getOrganizationDirectory().createOrganization(type, txtName.getText());
             if (type == Organization.Type.CommerceFinanaceManagementOrganization) {
                 System.out.println("CommerceFinanaceManagementOrganization");
-                if(org.getType() == Organization.Type.CommerceFinanaceManagementOrganization){
+                if (org.getType() == Organization.Type.CommerceFinanaceManagementOrganization) {
                     Employee emp = org.getEmployeeDirectory().createEmployee(txtName.getText());
                     UserAccount ua1 = org.getUserAccountDirectory().createUserAccount(txtUsername.getText(), txtPassword.getText(), emp, new CommerceFinanceTeamLedgerRole());
 
@@ -359,7 +419,7 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
             txtName.setText("");
             comboBoxOrgType.setSelectedIndex(0);
 
-        } else{
+        } else {
             JOptionPane.showMessageDialog(null, "Enter Organization name");
         }
         populateOrganizationTable();
@@ -369,17 +429,17 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         boolean flag = true;
         int selectedRow = tblOrganizationList.getSelectedRow();
-        if(selectedRow<0){
-            flag=false;
+        if (selectedRow < 0) {
+            flag = false;
             JOptionPane.showMessageDialog(this, "Please select a row to delete!");
         }
-        if(flag){
+        if (flag) {
             DefaultTableModel tableModel = (DefaultTableModel) tblOrganizationList.getModel();
-            Object org = tableModel.getValueAt(selectedRow, 0 );
-            Organization.Type type = (Organization.Type) tableModel.getValueAt(selectedRow, 1 );
+            Object org = tableModel.getValueAt(selectedRow, 0);
+            Organization.Type type = (Organization.Type) tableModel.getValueAt(selectedRow, 1);
             ArrayList<Organization> orgList = enterprise.getOrganizationDirectory().getOrganizationList();
-            for(int i = 0; i < enterprise.getOrganizationDirectory().getOrganizationList().size(); i++){
-                if((orgList.get(i).getName() == String.valueOf(org)) && (orgList.get(i).getType() == type)){
+            for (int i = 0; i < enterprise.getOrganizationDirectory().getOrganizationList().size(); i++) {
+                if ((orgList.get(i).getName() == String.valueOf(org)) && (orgList.get(i).getType() == type)) {
                     enterprise.getOrganizationDirectory().getOrganizationList().remove(i);
                     populateOrganizationTable();
                     break;
@@ -397,16 +457,13 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
             if (request.getStatus().equalsIgnoreCase("Completed")) {
                 JOptionPane.showMessageDialog(null, "Request is already completed.");
                 return;
-            }
-            else if (request.getStatus().equalsIgnoreCase("Rejected")) {
+            } else if (request.getStatus().equalsIgnoreCase("Rejected")) {
                 JOptionPane.showMessageDialog(null, "Request is already rejected.");
                 return;
-            }
-            else if (request.getStatus().equalsIgnoreCase("Forwarded to Charity Organization")) {
+            } else if (request.getStatus().equalsIgnoreCase("Forwarded to Charity Organization")) {
                 JOptionPane.showMessageDialog(null, "Request is already forwarded to the charity organization.");
                 return;
-            }
-            else {
+            } else {
                 if (request instanceof CommerceFinanceRequest) {
                     CommerceFinanceRequest fundRequest = (CommerceFinanceRequest) tblFunds.getValueAt(selectedRow, 0);
                 }
@@ -431,16 +488,13 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
             if (request.getStatus().equalsIgnoreCase("Completed")) {
                 JOptionPane.showMessageDialog(null, "Request is already completed.");
                 return;
-            }
-            else if (request.getStatus().equalsIgnoreCase("Rejected")) {
+            } else if (request.getStatus().equalsIgnoreCase("Rejected")) {
                 JOptionPane.showMessageDialog(null, "Request is already rejected.");
                 return;
-            }
-            else if (request.getStatus().equalsIgnoreCase("Forwarded to Charity Organization")) {
+            } else if (request.getStatus().equalsIgnoreCase("Forwarded to Charity Organization")) {
                 JOptionPane.showMessageDialog(null, "Request is already forwarded to Charity Organization.");
                 return;
-            }
-            else {
+            } else {
                 request.setReceiver(account);
                 request.setStatus("Rejected");
                 populateTable();
@@ -453,6 +507,19 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnRejectActionPerformed
 
+    private void jButtonDownloadReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDownloadReportActionPerformed
+        // TODO add your handling code here:
+        try {
+            int width = 640;
+            int height = 480;
+            File BarChart = new File("ReportFunds.jpeg");
+            ChartUtilities.saveChartAsJPEG(BarChart, jchart, width, height);
+            JOptionPane.showMessageDialog(null, "Report has been downloaded successfully!");
+        } catch (IOException ex) {
+            Logger.getLogger("Exception");
+        }
+    }//GEN-LAST:event_jButtonDownloadReportActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccept;
@@ -461,6 +528,7 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnReject;
     private javax.swing.JComboBox comboBoxOrgType;
     private javax.swing.JComboBox comboBoxRole;
+    private javax.swing.JButton jButtonDownloadReport;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -472,6 +540,8 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelIncomingKit;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelReport;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -484,113 +554,109 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void populateOrganizationTable() {
         DefaultTableModel model = (DefaultTableModel) tblOrganizationList.getModel();
-        
+
         model.setRowCount(0);
         for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
-            if(e.getName() == enterprise.getName()){
-                for(Organization org : e.getOrganizationDirectory().getOrganizationList()){
-                Object[] row = new Object[4];
-                row[0] = org.getName();
-                row[1] = org.getType();
-                for(UserAccount ua : org.getUserAccountDirectory().getUserAccountList()){
-                    if(ua.getRole().toString().equals(Role.RoleType.CommerceFinanceTeamLedgerRole.toString())){
-                        row[2] = ua.getUsername();
-                        row[3] = ua.getPassword();
+            if (e.getName() == enterprise.getName()) {
+                for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
+                    Object[] row = new Object[4];
+                    row[0] = org.getName();
+                    row[1] = org.getType();
+                    for (UserAccount ua : org.getUserAccountDirectory().getUserAccountList()) {
+                        if (ua.getRole().toString().equals(Role.RoleType.CommerceFinanceTeamLedgerRole.toString())) {
+                            row[2] = ua.getUsername();
+                            row[3] = ua.getPassword();
+                        }
                     }
+                    model.addRow(row);
                 }
-                model.addRow(row);
-            }
             }
         }
     }
 
     private void populateOrganizationTypes() {
         comboBoxOrgType.removeAllItems();
-        comboBoxOrgType.addItem(Organization.Type.CommerceFinanaceManagementOrganization);     
+        comboBoxOrgType.addItem(Organization.Type.CommerceFinanaceManagementOrganization);
     }
-    
+
     public void populateTable() {
-        
+
         DefaultTableModel model = (DefaultTableModel) tblFunds.getModel();
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 
         model.setRowCount(0);
 
-        for(Organization org : enterprise.getOrganizationDirectory().getOrganizationList()){
+        for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
             if (org.getWorkQueue() == null) {
                 org.setWorkQueue(new WorkQueue());
             }
             for (WorkRequest workRequest : org.getWorkQueue().getWorkRequestList()) {
 
-            if (workRequest instanceof CommerceFinanceRequest) {
-                Object[] row = new Object[model.getColumnCount()];
-                row[0] = workRequest;
-                row[1] = formatter.format(((CommerceFinanceRequest) workRequest).getRequestDate());
-                row[2] = ((CommerceFinanceRequest) workRequest).getOrgType();
-                row[3] = ((CommerceFinanceRequest) workRequest).getAmount();
-                row[4] = ((CommerceFinanceRequest) workRequest).getDonorName();
-                row[5] = ((CommerceFinanceRequest) workRequest).getDonorType();
-                row[6] = ((CommerceFinanceRequest) workRequest).getStatus();
+                if (workRequest instanceof CommerceFinanceRequest) {
+                    Object[] row = new Object[model.getColumnCount()];
+                    row[0] = workRequest;
+                    row[1] = formatter.format(((CommerceFinanceRequest) workRequest).getRequestDate());
+                    row[2] = ((CommerceFinanceRequest) workRequest).getOrgType();
+                    row[3] = ((CommerceFinanceRequest) workRequest).getAmount();
+                    row[4] = ((CommerceFinanceRequest) workRequest).getDonorName();
+                    row[5] = ((CommerceFinanceRequest) workRequest).getDonorType();
+                    row[6] = ((CommerceFinanceRequest) workRequest).getStatus();
 
-                model.addRow(row);
+                    model.addRow(row);
+                }
             }
         }
-    }
 
     }
-    
+
     private void populateRespectiveCharityWorkQueue() {
-        for(Enterprise ent2 : network.getEnterpriseDirectory().getEnterpriseList()){
-                         if(ent2.getEnterpriseType() ==  Enterprise.EnterpriseType.FinanceManagementDirectory){
-                             for(Organization org2 : ent2.getOrganizationDirectory().getOrganizationList()){
-                                 if (org2.getWorkQueue() == null) {
-                                    org2.setWorkQueue(new WorkQueue());
-                                 }
-                                 
-                                 for (WorkRequest workRequest : org2.getWorkQueue().getWorkRequestList()) {
-                                    for(Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()){
-                                        if(ent.getEnterpriseType() ==  Enterprise.EnterpriseType.CharityDirectory){
-                                            for(Organization org1 : ent.getOrganizationDirectory().getOrganizationList()){
+        for (Enterprise ent2 : network.getEnterpriseDirectory().getEnterpriseList()) {
+            if (ent2.getEnterpriseType() == Enterprise.EnterpriseType.FinanceManagementDirectory) {
+                for (Organization org2 : ent2.getOrganizationDirectory().getOrganizationList()) {
+                    if (org2.getWorkQueue() == null) {
+                        org2.setWorkQueue(new WorkQueue());
+                    }
 
+                    for (WorkRequest workRequest : org2.getWorkQueue().getWorkRequestList()) {
+                        for (Enterprise ent : network.getEnterpriseDirectory().getEnterpriseList()) {
+                            if (ent.getEnterpriseType() == Enterprise.EnterpriseType.CharityDirectory) {
+                                for (Organization org1 : ent.getOrganizationDirectory().getOrganizationList()) {
 
-                                                if (workRequest instanceof CommerceFinanceRequest) {
-                                                    if((((CommerceFinanceRequest) workRequest).getOrgType() == Organization.Type.AnimalWelfareCharityOrganization) && (org1.getType() == Organization.Type.AnimalWelfareCharityOrganization) && ((CommerceFinanceRequest) workRequest).getStatus().equalsIgnoreCase("Forwarded to Charity Organization")){
-                                                        if (org1.getWorkQueue() == null) {
-                                                             org1.setWorkQueue(new WorkQueue());
-                                                         }
-                                                        if(!org1.getWorkQueue().getWorkRequestList().contains(workRequest)){
-                                                            
-                                                                org1.getWorkQueue().getWorkRequestList().add(workRequest);
-                                                        }
-                                                    }
-                                                    else if((((CommerceFinanceRequest) workRequest).getOrgType() == Organization.Type.DisasterReliefCharityOrganization) && (org1.getType() == Organization.Type.DisasterReliefCharityOrganization) && ((CommerceFinanceRequest) workRequest).getStatus().equalsIgnoreCase("Forwarded to Charity Organization")){
-                                                        if (org1.getWorkQueue() == null) {
-                                                             org1.setWorkQueue(new WorkQueue());
-                                                         }
-                                                        if(!org1.getWorkQueue().getWorkRequestList().contains(workRequest)){
-                                                            
-                                                                org1.getWorkQueue().getWorkRequestList().add(workRequest);
-                                                        }
-                                                    }
-                                                    else if((((CommerceFinanceRequest) workRequest).getOrgType() == Organization.Type.EducationCharityOrganization) && (org1.getType() == Organization.Type.EducationCharityOrganization) && ((CommerceFinanceRequest) workRequest).getStatus().equalsIgnoreCase("Forwarded to Charity Organization")){
-                                                        if (org1.getWorkQueue() == null) {
-                                                             org1.setWorkQueue(new WorkQueue());
-                                                         }
-                                                        if(!org1.getWorkQueue().getWorkRequestList().contains(workRequest)){
-                                                            
-                                                                org1.getWorkQueue().getWorkRequestList().add(workRequest);
-                                                        }
-                                                    }
-                                                    else if((((CommerceFinanceRequest) workRequest).getOrgType() == Organization.Type.OrphanageCharityOrganization) && (org1.getType() == Organization.Type.OrphanageCharityOrganization) && ((CommerceFinanceRequest) workRequest).getStatus().equalsIgnoreCase("Forwarded to Charity Organization")){
-                                                        if (org1.getWorkQueue() == null) {
-                                                             org1.setWorkQueue(new WorkQueue());
-                                                         }
-                                                        if(!org1.getWorkQueue().getWorkRequestList().contains(workRequest)){
-                                                            
-                                                                org1.getWorkQueue().getWorkRequestList().add(workRequest);
-                                                        }
-                                                    }
-                                                }
+                                    if (workRequest instanceof CommerceFinanceRequest) {
+                                        if ((((CommerceFinanceRequest) workRequest).getOrgType() == Organization.Type.AnimalWelfareCharityOrganization) && (org1.getType() == Organization.Type.AnimalWelfareCharityOrganization) && ((CommerceFinanceRequest) workRequest).getStatus().equalsIgnoreCase("Forwarded to Charity Organization")) {
+                                            if (org1.getWorkQueue() == null) {
+                                                org1.setWorkQueue(new WorkQueue());
+                                            }
+                                            if (!org1.getWorkQueue().getWorkRequestList().contains(workRequest)) {
+
+                                                org1.getWorkQueue().getWorkRequestList().add(workRequest);
+                                            }
+                                        } else if ((((CommerceFinanceRequest) workRequest).getOrgType() == Organization.Type.DisasterReliefCharityOrganization) && (org1.getType() == Organization.Type.DisasterReliefCharityOrganization) && ((CommerceFinanceRequest) workRequest).getStatus().equalsIgnoreCase("Forwarded to Charity Organization")) {
+                                            if (org1.getWorkQueue() == null) {
+                                                org1.setWorkQueue(new WorkQueue());
+                                            }
+                                            if (!org1.getWorkQueue().getWorkRequestList().contains(workRequest)) {
+
+                                                org1.getWorkQueue().getWorkRequestList().add(workRequest);
+                                            }
+                                        } else if ((((CommerceFinanceRequest) workRequest).getOrgType() == Organization.Type.EducationCharityOrganization) && (org1.getType() == Organization.Type.EducationCharityOrganization) && ((CommerceFinanceRequest) workRequest).getStatus().equalsIgnoreCase("Forwarded to Charity Organization")) {
+                                            if (org1.getWorkQueue() == null) {
+                                                org1.setWorkQueue(new WorkQueue());
+                                            }
+                                            if (!org1.getWorkQueue().getWorkRequestList().contains(workRequest)) {
+
+                                                org1.getWorkQueue().getWorkRequestList().add(workRequest);
+                                            }
+                                        } else if ((((CommerceFinanceRequest) workRequest).getOrgType() == Organization.Type.OrphanageCharityOrganization) && (org1.getType() == Organization.Type.OrphanageCharityOrganization) && ((CommerceFinanceRequest) workRequest).getStatus().equalsIgnoreCase("Forwarded to Charity Organization")) {
+                                            if (org1.getWorkQueue() == null) {
+                                                org1.setWorkQueue(new WorkQueue());
+                                            }
+                                            if (!org1.getWorkQueue().getWorkRequestList().contains(workRequest)) {
+
+                                                org1.getWorkQueue().getWorkRequestList().add(workRequest);
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -600,5 +666,54 @@ public class CommerceFinanceTeamAdminWorkAreaJPanel extends javax.swing.JPanel {
             }
         }
     }
-}
 
+    private void populateBarGraph() {
+        DefaultTableModel dtm = (DefaultTableModel) tblFunds.getModel();
+        int rowCount = dtm.getRowCount();
+        //System.out.println("Rowcount + "+ rowCount);
+        int count=0;
+        double awfunds = 0.0;
+        double drfunds = 0.0;
+        double efunds = 0.0;
+        double ofunds = 0.0;
+        while(count<rowCount){
+            if(tblFunds.getValueAt(count, 2).toString().contains("nimal")){
+                awfunds += Double.parseDouble(tblFunds.getValueAt(count, 3).toString());
+            }
+            if(tblFunds.getValueAt(count, 2).toString().contains("isaster")){
+                drfunds += Double.parseDouble(tblFunds.getValueAt(count, 3).toString());
+            }
+            if(tblFunds.getValueAt(count, 2).toString().contains("cation")){
+                efunds += Double.parseDouble(tblFunds.getValueAt(count, 3).toString());
+            }
+            if(tblFunds.getValueAt(count, 2).toString().contains("rphan")){
+                ofunds += Double.parseDouble(tblFunds.getValueAt(count, 3).toString());
+            }
+            count++;
+        }
+        System.out.println("AW: " + awfunds);
+        System.out.println("DR: " + drfunds);
+        System.out.println("E: " + efunds);
+        System.out.println("O: " + ofunds);
+
+        DefaultCategoryDataset data = new DefaultCategoryDataset();
+
+        data.setValue(awfunds, "TotalFunds", "Animal Welfare");
+        data.setValue(drfunds, "TotalFunds", "Disaster Relief");
+        data.setValue(efunds, "TotalFunds", "Education");
+        data.setValue(ofunds, "TotalFunds", "Orphanage");
+        jchart = ChartFactory.createBarChart3D("Total Donations", "Organization", "Funds", data, PlotOrientation.VERTICAL, true, true, false);
+        CategoryPlot plot = jchart.getCategoryPlot();
+        plot.setRangeGridlinePaint(Color.BLACK);
+
+//        ChartFrame chartframe = new ChartFrame("Total Donations Record", jchart,true);
+//        chartframe.setVisible(true);
+//        chartframe.setSize(500,400);
+        ChartPanel chartPanel = new ChartPanel(jchart);
+
+        jPanelReport.removeAll();
+        jPanelReport.add(chartPanel);
+        jPanelReport.updateUI();
+        System.out.println("Funds Chart Created");
+    }
+}

@@ -13,8 +13,8 @@ import Business.Utilities.Validation;
 import Business.WorkQueue.DonorRegistrationRequest;
 import Business.WorkQueue.WorkQueue;
 import Business.WorkQueue.WorkRequest;
-//import com.github.sarxos.webcam.Webcam;
-//import com.github.sarxos.webcam.WebcamResolution;
+import com.github.sarxos.webcam.Webcam;
+import com.github.sarxos.webcam.WebcamResolution;
 //import Business.WorkQueue.UserRegistrationRequest;
 
 import java.awt.event.ActionListener;
@@ -66,7 +66,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
     private boolean userUnique;
     private boolean isRunning = false;
 
-//    Webcam webcam = Webcam.getDefault();
+    Webcam webcam = Webcam.getDefault();
 
     public DonorRegistrationJPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
@@ -645,7 +645,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
 
     private void jButtonClickImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClickImageActionPerformed
         // TODO add your handling code here:
-    /*    if (!isRunning) {
+        if (!isRunning) {
             isRunning = true;
             new VideoFeedTaker().start();
         } else {
@@ -667,7 +667,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
 //        webcam.open();
 //        
 //        webcam.close();
-    */
+    
     }//GEN-LAST:event_jButtonClickImageActionPerformed
 
 
@@ -812,7 +812,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
 
     class VideoFeedTaker extends Thread {
 
-    /*    @Override
+        @Override
         public void run() {
 //            webcam.setViewSize(new Dimension(176, 144));
 //        webcam.setViewSize(WebcamResolution.HQVGA.getSize());
@@ -831,7 +831,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
                 }
             }
             //boolean close = webcam.close();
-        } */
+        } 
     }  
 
 }

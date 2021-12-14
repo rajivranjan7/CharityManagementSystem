@@ -20,11 +20,26 @@ import Business.WorkQueue.DonorRegistrationRequest;
 import Business.WorkQueue.EducationWelfareKitInventoryRequest;
 import Business.WorkQueue.WorkQueue;
 import Business.WorkQueue.WorkRequest;
+import java.awt.Color;
+import java.io.File;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
 
 /**
  *
@@ -37,6 +52,9 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
     private static Network network;
     private static Enterprise enterprise;
     private static UserAccount account;
+    
+     JFreeChart jchart;
+    
     /**
      * Creates new form InventoryAdminWorkArea
      */
@@ -51,6 +69,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
         populateOrganizationTypes();
         //populateWorkRequestTable();
         populateTable();
+        populateBarGraph();
     }
 
     /**
@@ -86,6 +105,9 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
         tblWorkQueue = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButtonDownloadReport = new javax.swing.JButton();
+        jPanel4 = new javax.swing.JPanel();
+        jPanelReport = new javax.swing.JPanel();
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -266,12 +288,38 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
             }
         });
 
+        jButtonDownloadReport.setText("Download");
+        jButtonDownloadReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDownloadReportActionPerformed(evt);
+            }
+        });
+
+        jPanelReport.setLayout(new javax.swing.BoxLayout(jPanelReport, javax.swing.BoxLayout.LINE_AXIS));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelReport, javax.swing.GroupLayout.DEFAULT_SIZE, 721, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanelReport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 622, Short.MAX_VALUE)
+                .addGap(0, 636, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addGap(39, 39, 39)
                 .addComponent(jButton1)
@@ -282,6 +330,12 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
                     .addComponent(jScrollPane2)
                     .addComponent(lblDonarName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonDownloadReport)
+                .addGap(49, 49, 49)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(114, 114, 114))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -294,7 +348,14 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addContainerGap(465, Short.MAX_VALUE))
+                .addGap(91, 91, 91)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButtonDownloadReport)
+                        .addGap(211, 211, 211)))
+                .addGap(39, 39, 39))
         );
 
         jTabbedPane1.addTab("Manage work request", jPanel2);
@@ -459,6 +520,19 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButtonDownloadReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDownloadReportActionPerformed
+        // TODO add your handling code here:
+        try {
+            int width = 640;
+            int height = 480;
+            File BarChart = new File("ReportInventory.jpeg");
+            ChartUtilities.saveChartAsJPEG(BarChart, jchart, width, height);
+            JOptionPane.showMessageDialog(null, "Report has been downloaded successfully!");
+        } catch (IOException ex) {
+            Logger.getLogger("Exception");
+        }
+    }//GEN-LAST:event_jButtonDownloadReportActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddOrganization;
@@ -467,6 +541,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JComboBox comboBoxRole;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonDownloadReport;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -476,6 +551,8 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelReport;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
@@ -578,5 +655,55 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
         
         
 
+    }
+
+    private void populateBarGraph() {
+        DefaultTableModel dtm = (DefaultTableModel) tblWorkQueue.getModel();
+        int rowCount = dtm.getRowCount();
+        //System.out.println("Rowcount + "+ rowCount);
+        int count=0;
+        double awkits = 0.0;
+        double drkits = 0.0;
+        double ekits = 0.0;
+        double okits = 0.0;
+        while(count<rowCount){
+            if(tblWorkQueue.getValueAt(count, 2).toString().contains("nimal")){
+                awkits += Double.parseDouble(tblWorkQueue.getValueAt(count, 3).toString());
+            }
+            if(tblWorkQueue.getValueAt(count, 2).toString().contains("isaster")){
+                drkits += Double.parseDouble(tblWorkQueue.getValueAt(count, 3).toString());
+            }
+            if(tblWorkQueue.getValueAt(count, 2).toString().contains("cation")){
+                ekits += Double.parseDouble(tblWorkQueue.getValueAt(count, 3).toString());
+            }
+            if(tblWorkQueue.getValueAt(count, 2).toString().contains("rphan")){
+                okits += Double.parseDouble(tblWorkQueue.getValueAt(count, 3).toString());
+            }
+            count++;
+        }
+        System.out.println("AW: " + awkits);
+        System.out.println("DR: " + drkits);
+        System.out.println("E: " + ekits);
+        System.out.println("O: " + okits);
+
+        DefaultCategoryDataset data = new DefaultCategoryDataset();
+
+        data.setValue(awkits, "TotalKits", "Animal Welfare");
+        data.setValue(drkits, "TotalKits", "Disaster Relief");
+        data.setValue(ekits, "TotalKits", "Education");
+        data.setValue(okits, "TotalKits", "Orphanage");
+        jchart = ChartFactory.createBarChart3D("Total Kit Donations", "Organization", "Funds", data, PlotOrientation.VERTICAL, true, true, false);
+        CategoryPlot plot = jchart.getCategoryPlot();
+        plot.setRangeGridlinePaint(Color.BLACK);
+
+//        ChartFrame chartframe = new ChartFrame("Total Donations Record", jchart,true);
+//        chartframe.setVisible(true);
+//        chartframe.setSize(500,400);
+        ChartPanel chartPanel = new ChartPanel(jchart);
+
+        jPanelReport.removeAll();
+        jPanelReport.add(chartPanel);
+        jPanelReport.updateUI();
+        System.out.println("Kits Chart Created");
     }
 }
