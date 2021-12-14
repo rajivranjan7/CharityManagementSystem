@@ -9,6 +9,7 @@ import Business.EcoSystem;
 import Business.Network.Network;
 import java.awt.Toolkit;
 import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +22,7 @@ public class ManageNetwork extends javax.swing.JFrame {
 
     private static JPanel container;
     private static EcoSystem system;
+
     /**
      * Creates new form ManageNetwork
      */
@@ -63,6 +65,7 @@ public class ManageNetwork extends javax.swing.JFrame {
         btnAddNetwork = new javax.swing.JButton();
         btnCancel = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        btnDelete = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -74,7 +77,7 @@ public class ManageNetwork extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(2, 55, 108));
         jLabel1.setText("Manage Network");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(390, 110, 287, 47);
+        jLabel1.setBounds(390, 110, 420, 47);
 
         btnBack.setBackground(new java.awt.Color(2, 55, 108));
         btnBack.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -153,7 +156,19 @@ public class ManageNetwork extends javax.swing.JFrame {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/network.jpg"))); // NOI18N
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(800, 10, 1270, 730);
+        jLabel3.setBounds(880, 10, 1190, 730);
+
+        btnDelete.setBackground(new java.awt.Color(2, 55, 108));
+        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnDelete);
+        btnDelete.setBounds(720, 400, 140, 41);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -172,16 +187,16 @@ public class ManageNetwork extends javax.swing.JFrame {
     private void btnAddNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddNetworkActionPerformed
         // TODO add your handling code here:
         String name = txtNetwork.getText().trim();
-        if(!name.isEmpty()){
-            if(system.isUnique(name)){
+        if (!name.isEmpty()) {
+            if (system.isUnique(name)) {
                 Network network = system.createAndAddNetwork();
                 network.setName(name);
                 JOptionPane.showMessageDialog(null, "Network Successfully Created");
                 txtNetwork.setText("");
-            } else{
+            } else {
                 JOptionPane.showMessageDialog(null, "Network Already Exits");
             }
-        } else{
+        } else {
             JOptionPane.showMessageDialog(null, "Enter city name");
         }
         populateNetworkTable();
@@ -196,6 +211,22 @@ public class ManageNetwork extends javax.swing.JFrame {
         // TODO add your handling code here:
         close();
     }//GEN-LAST:event_btnCancelActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        boolean flag = true;
+        int selectedRow = tblNetwork.getSelectedRow();
+        if (selectedRow < 0) {
+            flag = false;
+            JOptionPane.showMessageDialog(this, "Please select a row to delete!");
+        }
+        if (flag) {
+            JOptionPane.showMessageDialog(null, "Network deleted successfully!");
+            DefaultTableModel dtm = (DefaultTableModel) tblNetwork.getModel();
+            dtm.removeRow(dtm.getRowCount() - 1);
+            populateTable();
+        }
+    }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -237,6 +268,7 @@ public class ManageNetwork extends javax.swing.JFrame {
     private javax.swing.JButton btnAddNetwork;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -246,9 +278,21 @@ public class ManageNetwork extends javax.swing.JFrame {
     private javax.swing.JTextField txtNetwork;
     // End of variables declaration//GEN-END:variables
 
-    
     private void close() {
         WindowEvent closeWindow = new WindowEvent(this, WindowEvent.WINDOW_CLOSING);
         Toolkit.getDefaultToolkit().getSystemEventQueue().postEvent(closeWindow);
+    }
+
+    private void populateTable() {
+        DefaultTableModel model = (DefaultTableModel) tblNetwork.getModel();
+
+        model.setRowCount(0);
+        for (Network network : system.getNetworkList()) {
+            Object[] row = new Object[1];
+            row[0] = network.getName();
+            model.addRow(row);
+
+        }
+        model.removeRow(model.getRowCount() - 1);
     }
 }
