@@ -104,7 +104,9 @@ public class AnimalWelfareCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblFunds);
         if (tblFunds.getColumnModel().getColumnCount() > 0) {
-            tblFunds.getColumnModel().getColumn(0).setResizable(false);
+            tblFunds.getColumnModel().getColumn(0).setMinWidth(0);
+            tblFunds.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblFunds.getColumnModel().getColumn(0).setMaxWidth(0);
         }
 
         jLabelIncomingKit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -154,7 +156,9 @@ public class AnimalWelfareCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblKits);
         if (tblKits.getColumnModel().getColumnCount() > 0) {
-            tblKits.getColumnModel().getColumn(0).setResizable(false);
+            tblKits.getColumnModel().getColumn(0).setMinWidth(0);
+            tblKits.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblKits.getColumnModel().getColumn(0).setMaxWidth(0);
         }
 
         jLabelIncomingKit1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -419,7 +423,6 @@ public class AnimalWelfareCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable tblFunds;
     private javax.swing.JTable tblKits;
     private javax.swing.JTextField txtTotalFunds;

@@ -108,7 +108,9 @@ public class DisasterReliefCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblFunds);
         if (tblFunds.getColumnModel().getColumnCount() > 0) {
-            tblFunds.getColumnModel().getColumn(0).setResizable(false);
+            tblFunds.getColumnModel().getColumn(0).setMinWidth(0);
+            tblFunds.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblFunds.getColumnModel().getColumn(0).setMaxWidth(0);
         }
 
         jLabelIncomingKit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -158,7 +160,9 @@ public class DisasterReliefCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
         });
         jScrollPane2.setViewportView(tblKits);
         if (tblKits.getColumnModel().getColumnCount() > 0) {
-            tblKits.getColumnModel().getColumn(0).setResizable(false);
+            tblKits.getColumnModel().getColumn(0).setMinWidth(0);
+            tblKits.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblKits.getColumnModel().getColumn(0).setMaxWidth(0);
         }
 
         jLabelIncomingKit1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N

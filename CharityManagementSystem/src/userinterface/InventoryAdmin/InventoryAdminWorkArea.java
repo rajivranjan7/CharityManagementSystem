@@ -246,6 +246,11 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
             }
         });
         jScrollPane2.setViewportView(tblWorkQueue);
+        if (tblWorkQueue.getColumnModel().getColumnCount() > 0) {
+            tblWorkQueue.getColumnModel().getColumn(0).setMinWidth(0);
+            tblWorkQueue.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblWorkQueue.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         jButton1.setText("Accept");
         jButton1.addActionListener(new java.awt.event.ActionListener() {

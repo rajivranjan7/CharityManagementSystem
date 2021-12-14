@@ -81,6 +81,11 @@ public class DisasterReliefKitInventoryManagerWorkAreaJPanel extends javax.swing
             }
         });
         jScrollPane1.setViewportView(tblKits);
+        if (tblKits.getColumnModel().getColumnCount() > 0) {
+            tblKits.getColumnModel().getColumn(0).setMinWidth(0);
+            tblKits.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblKits.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         jLabelIncomingKit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelIncomingKit.setText("Incoming Kits");

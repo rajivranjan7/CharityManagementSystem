@@ -87,6 +87,11 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
             }
         });
         jScrollPane3.setViewportView(tblFunds);
+        if (tblFunds.getColumnModel().getColumnCount() > 0) {
+            tblFunds.getColumnModel().getColumn(0).setMinWidth(0);
+            tblFunds.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblFunds.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
 
         jLabelIncomingKit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelIncomingKit.setText("Incoming Funds");
@@ -145,8 +150,6 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
                     .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(430, Short.MAX_VALUE))
         );
-
-        jLabel2.getAccessibleContext().setAccessibleName("Welcome Finance Ledger");
 
         jTabbedPane1.addTab("Manage Work Requests", jPanel3);
 
