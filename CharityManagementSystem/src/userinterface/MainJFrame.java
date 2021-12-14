@@ -241,7 +241,7 @@ public class MainJFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed
-        //dB4OUtil.storeSystem(system);
+        dB4OUtil.storeSystem(system);
         logoutJButton.setEnabled(false);
         logoutJButton.setText("Logout");
         btnRegister.setEnabled(true);
