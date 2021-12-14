@@ -29,17 +29,17 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import org.jfree.chart.ChartFactory;
-import org.jfree.chart.ChartFrame;
-import org.jfree.chart.ChartPanel;
-import org.jfree.chart.ChartUtilities;
-import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.category.DefaultCategoryDataset;
-import org.jfree.data.general.DefaultPieDataset;
-import org.jfree.data.general.PieDataset;
+//import org.jfree.chart.ChartFactory;
+//import org.jfree.chart.ChartFrame;
+//import org.jfree.chart.ChartPanel;
+//import org.jfree.chart.ChartUtilities;
+//import org.jfree.chart.JFreeChart;
+//import org.jfree.chart.plot.CategoryPlot;
+//import org.jfree.chart.plot.PlotOrientation;
+//import org.jfree.data.category.CategoryDataset;
+//import org.jfree.data.category.DefaultCategoryDataset;
+//import org.jfree.data.general.DefaultPieDataset;
+//import org.jfree.data.general.PieDataset;
 
 /**
  *
@@ -53,7 +53,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
     private static Enterprise enterprise;
     private static UserAccount account;
     
-     JFreeChart jchart;
+    // JFreeChart jchart;
     
     /**
      * Creates new form InventoryAdminWorkArea
@@ -99,6 +99,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         txtPassword = new javax.swing.JTextField();
         btnDelete = new javax.swing.JButton();
+        lblDonarName1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         lblDonarName = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -108,11 +109,29 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
         jButtonDownloadReport = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanelReport = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(null);
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(2, 55, 108));
         jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel7.setText("Inventory Admin");
+        add(jLabel7);
+        jLabel7.setBounds(18, 11, 1116, 67);
 
+        jTabbedPane1.setForeground(new java.awt.Color(2, 55, 108));
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setPreferredSize(new java.awt.Dimension(900, 900));
+        jPanel1.setLayout(null);
+
+        jScrollPane1.setForeground(new java.awt.Color(2, 55, 108));
+
+        tblOrganizationList.setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108)), javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108)))));
         tblOrganizationList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -134,9 +153,21 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblOrganizationList);
 
-        jLabel1.setText("Organization List");
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 150, 1109, 194);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel1.setText("Organization List");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(10, 120, 180, 22);
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Organization Type");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(180, 410, 170, 40);
 
         comboBoxOrgType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         comboBoxOrgType.addActionListener(new java.awt.event.ActionListener() {
@@ -144,110 +175,91 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
                 comboBoxOrgTypeActionPerformed(evt);
             }
         });
+        jPanel1.add(comboBoxOrgType);
+        comboBoxOrgType.setBounds(430, 410, 220, 40);
+        jPanel1.add(txtUsername);
+        txtUsername.setBounds(430, 600, 220, 40);
 
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Organization Name");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(170, 540, 180, 40);
 
+        btnAddOrganization.setBackground(new java.awt.Color(2, 55, 108));
+        btnAddOrganization.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnAddOrganization.setForeground(new java.awt.Color(255, 255, 255));
         btnAddOrganization.setText("Add Organization");
         btnAddOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddOrganizationActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAddOrganization);
+        btnAddOrganization.setBounds(430, 770, 220, 40);
 
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel4.setText("Username");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(220, 610, 130, 40);
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel5.setText("Password");
+        jPanel1.add(jLabel5);
+        jLabel5.setBounds(230, 670, 120, 40);
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel6.setText("Role");
+        jPanel1.add(jLabel6);
+        jLabel6.setBounds(260, 470, 90, 40);
 
         comboBoxRole.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(comboBoxRole);
+        comboBoxRole.setBounds(430, 470, 220, 40);
+        jPanel1.add(txtName);
+        txtName.setBounds(430, 540, 220, 40);
+        jPanel1.add(txtPassword);
+        txtPassword.setBounds(430, 670, 220, 40);
 
+        btnDelete.setBackground(new java.awt.Color(2, 55, 108));
+        btnDelete.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnDelete.setForeground(new java.awt.Color(255, 255, 255));
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDeleteActionPerformed(evt);
             }
         });
+        jPanel1.add(btnDelete);
+        btnDelete.setBounds(970, 360, 150, 40);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(241, 241, 241)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel2))
-                        .addGap(98, 98, 98)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(comboBoxOrgType, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(comboBoxRole, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                                .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
-                                .addComponent(txtPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)))
-                        .addGap(0, 460, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnDelete)))
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(336, 336, 336)
-                .addComponent(btnAddOrganization)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnDelete)
-                .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(comboBoxOrgType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addGap(47, 47, 47)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(comboBoxRole, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(44, 44, 44)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4)
-                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addComponent(btnAddOrganization)
-                .addContainerGap(136, Short.MAX_VALUE))
-        );
+        lblDonarName1.setFont(new java.awt.Font("Marker Felt", 1, 24)); // NOI18N
+        lblDonarName1.setForeground(new java.awt.Color(2, 55, 108));
+        lblDonarName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDonarName1.setText("Welcome Inventory Admin");
+        jPanel1.add(lblDonarName1);
+        lblDonarName1.setBounds(10, 70, 1109, 32);
 
         jTabbedPane1.addTab("Manage Organization", jPanel1);
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
+
         lblDonarName.setFont(new java.awt.Font("Marker Felt", 1, 24)); // NOI18N
+        lblDonarName.setForeground(new java.awt.Color(2, 55, 108));
         lblDonarName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblDonarName.setText("Welcome Inventory Admin");
+        jPanel2.add(lblDonarName);
+        lblDonarName.setBounds(10, 73, 1109, 32);
 
+        tblWorkQueue.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108)), javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108))));
         tblWorkQueue.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -274,26 +286,44 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
             tblWorkQueue.getColumnModel().getColumn(0).setMaxWidth(0);
         }
 
+        jPanel2.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 150, 1109, 148);
+
+        jButton1.setBackground(new java.awt.Color(2, 55, 108));
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Accept");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton1);
+        jButton1.setBounds(830, 330, 140, 40);
 
+        jButton2.setBackground(new java.awt.Color(2, 55, 108));
+        jButton2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Reject ");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
+        jPanel2.add(jButton2);
+        jButton2.setBounds(990, 330, 130, 40);
 
+        jButtonDownloadReport.setBackground(new java.awt.Color(2, 55, 108));
+        jButtonDownloadReport.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButtonDownloadReport.setForeground(new java.awt.Color(255, 255, 255));
         jButtonDownloadReport.setText("Download");
         jButtonDownloadReport.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonDownloadReportActionPerformed(evt);
             }
         });
+        jPanel2.add(jButtonDownloadReport);
+        jButtonDownloadReport.setBounds(95, 578, 130, 40);
 
         jPanelReport.setLayout(new javax.swing.BoxLayout(jPanelReport, javax.swing.BoxLayout.LINE_AXIS));
 
@@ -310,77 +340,27 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanelReport, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanelReport, javax.swing.GroupLayout.DEFAULT_SIZE, 322, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 636, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(39, 39, 39)
-                .addComponent(jButton1)
-                .addGap(306, 306, 306))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addComponent(lblDonarName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonDownloadReport)
-                .addGap(49, 49, 49)
-                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(114, 114, 114))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(lblDonarName)
-                .addGap(55, 55, 55)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(91, 91, 91)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButtonDownloadReport)
-                        .addGap(211, 211, 211)))
-                .addGap(39, 39, 39))
-        );
+        jPanel2.add(jPanel4);
+        jPanel4.setBounds(274, 485, 741, 344);
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel9.setText("Inventory List");
+        jPanel2.add(jLabel9);
+        jLabel9.setBounds(10, 120, 180, 22);
 
         jTabbedPane1.addTab("Manage work request", jPanel2);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTabbedPane1)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 898, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        add(jTabbedPane1);
+        jTabbedPane1.setBounds(0, 96, 1200, 898);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/icons8-avatar-64 (14).png"))); // NOI18N
+        add(jLabel8);
+        jLabel8.setBounds(0, 0, 110, 90);
     }// </editor-fold>//GEN-END:initComponents
 
     private void comboBoxOrgTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboBoxOrgTypeActionPerformed
@@ -522,7 +502,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
 
     private void jButtonDownloadReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDownloadReportActionPerformed
         // TODO add your handling code here:
-        try {
+      /*  try {
             int width = 640;
             int height = 480;
             File BarChart = new File("ReportInventory.jpeg");
@@ -530,7 +510,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Report has been downloaded successfully!");
         } catch (IOException ex) {
             Logger.getLogger("Exception");
-        }
+        } */
     }//GEN-LAST:event_jButtonDownloadReportActionPerformed
 
 
@@ -549,6 +529,8 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
@@ -557,6 +539,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JLabel lblDonarName;
+    private javax.swing.JLabel lblDonarName1;
     private javax.swing.JTable tblOrganizationList;
     private javax.swing.JTable tblWorkQueue;
     private javax.swing.JTextField txtName;
@@ -658,7 +641,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
     }
 
     private void populateBarGraph() {
-        DefaultTableModel dtm = (DefaultTableModel) tblWorkQueue.getModel();
+    /*    DefaultTableModel dtm = (DefaultTableModel) tblWorkQueue.getModel();
         int rowCount = dtm.getRowCount();
         //System.out.println("Rowcount + "+ rowCount);
         int count=0;
@@ -705,5 +688,6 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
         jPanelReport.add(chartPanel);
         jPanelReport.updateUI();
         System.out.println("Kits Chart Created");
-    }
+        */
+    } 
 }

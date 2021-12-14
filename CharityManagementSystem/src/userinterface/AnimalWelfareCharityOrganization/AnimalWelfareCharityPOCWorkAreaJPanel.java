@@ -52,7 +52,7 @@ public class AnimalWelfareCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
                         this.animalWelfareInventoryOrg = (AnimalWelfareKitInventoryManagementOrganization) org;
                     }}}}
         
-        txtTotalKits.setText(String.valueOf(animalWelfareInventoryOrg.getTotalKits()));
+        txtTotalKits.setText(String.valueOf(animalWelfareCharityOrg.getTotalKits()));
         populateTable();
     }
 
@@ -71,7 +71,6 @@ public class AnimalWelfareCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
         jLabelInventoryOverview = new javax.swing.JLabel();
         btnAccept = new javax.swing.JButton();
         btnReject = new javax.swing.JButton();
-        jLabelTitle = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtTotalFunds = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -82,7 +81,12 @@ public class AnimalWelfareCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
         txtTotalKits = new javax.swing.JTextField();
         btnAccept1 = new javax.swing.JButton();
         btnReject1 = new javax.swing.JButton();
+        jLabelTitle = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(null);
+
+        tblFunds.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108)), javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108))));
         tblFunds.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -109,32 +113,57 @@ public class AnimalWelfareCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
             tblFunds.getColumnModel().getColumn(0).setMaxWidth(0);
         }
 
+        add(jScrollPane1);
+        jScrollPane1.setBounds(120, 140, 943, 177);
+
         jLabelIncomingKit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelIncomingKit.setForeground(new java.awt.Color(2, 55, 108));
         jLabelIncomingKit.setText("Incoming Kits");
+        add(jLabelIncomingKit);
+        jLabelIncomingKit.setBounds(120, 540, 178, 37);
 
         jLabelInventoryOverview.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelInventoryOverview.setForeground(new java.awt.Color(2, 55, 108));
         jLabelInventoryOverview.setText("Total Donations collected for Animal Welfare Charity Organization");
+        add(jLabelInventoryOverview);
+        jLabelInventoryOverview.setBounds(120, 390, 645, 37);
 
+        btnAccept.setBackground(new java.awt.Color(2, 55, 108));
+        btnAccept.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnAccept.setForeground(new java.awt.Color(255, 255, 255));
         btnAccept.setText("Accept");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAcceptActionPerformed(evt);
             }
         });
+        add(btnAccept);
+        btnAccept.setBounds(940, 330, 123, 36);
 
+        btnReject.setBackground(new java.awt.Color(2, 55, 108));
+        btnReject.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnReject.setForeground(new java.awt.Color(255, 255, 255));
         btnReject.setText("Reject");
         btnReject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnRejectActionPerformed(evt);
             }
         });
+        add(btnReject);
+        btnReject.setBounds(810, 330, 123, 36);
 
-        jLabelTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitle.setText("Animal Welfare Charity Admin");
-
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel1.setText("Total Funds");
+        add(jLabel1);
+        jLabel1.setBounds(170, 440, 120, 22);
 
+        txtTotalFunds.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        add(txtTotalFunds);
+        txtTotalFunds.setBounds(300, 430, 231, 40);
+
+        tblKits.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108)), javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108))));
         tblKits.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
@@ -161,115 +190,62 @@ public class AnimalWelfareCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
             tblKits.getColumnModel().getColumn(0).setMaxWidth(0);
         }
 
+        add(jScrollPane2);
+        jScrollPane2.setBounds(120, 580, 953, 175);
+
         jLabelIncomingKit1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelIncomingKit1.setForeground(new java.awt.Color(2, 55, 108));
         jLabelIncomingKit1.setText("Incoming Funds");
+        add(jLabelIncomingKit1);
+        jLabelIncomingKit1.setBounds(120, 100, 178, 37);
 
         jLabelInventoryOverview1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelInventoryOverview1.setForeground(new java.awt.Color(2, 55, 108));
         jLabelInventoryOverview1.setText("Total Kits Donations collected for Animal Welfare Charity Organization");
+        add(jLabelInventoryOverview1);
+        jLabelInventoryOverview1.setBounds(130, 810, 645, 37);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel2.setText("Total Kits");
+        add(jLabel2);
+        jLabel2.setBounds(190, 860, 100, 22);
 
+        txtTotalKits.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        add(txtTotalKits);
+        txtTotalKits.setBounds(310, 850, 231, 40);
+
+        btnAccept1.setBackground(new java.awt.Color(2, 55, 108));
+        btnAccept1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnAccept1.setForeground(new java.awt.Color(255, 255, 255));
         btnAccept1.setText("Accept");
         btnAccept1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAccept1ActionPerformed(evt);
             }
         });
+        add(btnAccept1);
+        btnAccept1.setBounds(950, 770, 123, 36);
 
+        btnReject1.setBackground(new java.awt.Color(2, 55, 108));
+        btnReject1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnReject1.setForeground(new java.awt.Color(255, 255, 255));
         btnReject1.setText("Reject");
         btnReject1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReject1ActionPerformed(evt);
             }
         });
+        add(btnReject1);
+        btnReject1.setBounds(820, 770, 123, 36);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(8, 8, 8))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnReject1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAccept1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(5, 5, 5))))
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelIncomingKit, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabelIncomingKit1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabelInventoryOverview, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(104, 104, 104)
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtTotalFunds, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jLabelInventoryOverview1, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(123, 123, 123)
-                                .addComponent(jLabel2)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtTotalKits, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 298, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(jLabelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabelIncomingKit1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
-                .addComponent(jLabelInventoryOverview, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTotalFunds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabelIncomingKit, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnReject1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAccept1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(10, 10, 10)
-                .addComponent(jLabelInventoryOverview1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtTotalKits, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
-                .addContainerGap(102, Short.MAX_VALUE))
-        );
+        jLabelTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabelTitle.setForeground(new java.awt.Color(2, 55, 108));
+        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitle.setText("Animal Welfare Charity Admin");
+        add(jLabelTitle);
+        jLabelTitle.setBounds(120, 20, 940, 35);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
