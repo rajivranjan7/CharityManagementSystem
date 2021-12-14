@@ -302,7 +302,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 jSplitPane1.setRightComponent(panel);
             }
             else if(userAccount.getRole() instanceof DisasterReliefCharityPOCRole) {
-                DisasterReliefCharityPOCWorkAreaJPanel panel = new DisasterReliefCharityPOCWorkAreaJPanel(userAccount,enterprise,organization);
+                DisasterReliefCharityPOCWorkAreaJPanel panel = new DisasterReliefCharityPOCWorkAreaJPanel(userAccount,enterprise,organization, network);
                 jSplitPane1.setRightComponent(panel);
             }
             else if(userAccount.getRole() instanceof EducationCharityPOCRole) {
@@ -310,7 +310,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 jSplitPane1.setRightComponent(panel);
             }
             else if(userAccount.getRole() instanceof OrphanageCharityPOCRole) {
-                OrphanageCharityPOCWorkAreaJPanel panel = new OrphanageCharityPOCWorkAreaJPanel(userAccount,enterprise,organization);
+                OrphanageCharityPOCWorkAreaJPanel panel = new OrphanageCharityPOCWorkAreaJPanel(userAccount,enterprise,organization, network);
                 jSplitPane1.setRightComponent(panel);
             }
             else if(userAccount.getRole() instanceof InventoryAdminRole) {
@@ -322,7 +322,7 @@ public class MainJFrame extends javax.swing.JFrame {
                 jSplitPane1.setRightComponent(panel);
             }
             else if(userAccount.getRole() instanceof DisasterReliefKitInventoryManagerRole) {
-                DisasterReliefKitInventoryManagerWorkAreaJPanel panel = new DisasterReliefKitInventoryManagerWorkAreaJPanel(container, system, network, enterprise);
+                DisasterReliefKitInventoryManagerWorkAreaJPanel panel = new DisasterReliefKitInventoryManagerWorkAreaJPanel(userAccount,enterprise,organization);
                 jSplitPane1.setRightComponent(panel);
             }
             else if(userAccount.getRole() instanceof EducationKitInventoryManagerRole) {

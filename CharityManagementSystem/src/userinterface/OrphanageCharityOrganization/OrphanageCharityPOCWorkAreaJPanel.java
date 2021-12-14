@@ -4,15 +4,17 @@
  */
 package userinterface.OrphanageCharityOrganization;
 
-import userinterface.EducationCharityOrganization.*;
 import userinterface.AnimalWelfareCharityOrganization.*;
 import Business.Enterprise.Enterprise;
+import Business.Enterprise.Enterprise.EnterpriseType;
+import Business.Network.Network;
 import Business.Organization.AnimalWelfareCharityOrganization;
-import Business.Organization.EducationCharityOrganization;
+import Business.Organization.AnimalWelfareKitInventoryManagementOrganization;
 import Business.Organization.Organization;
 import static Business.Organization.Organization.Type.AnimalWelfareCharityOrganization;
 import Business.Organization.OrphanageCharityOrganization;
 import Business.UserAccount.UserAccount;
+import Business.WorkQueue.AnimalWelfareKitInventoryRequest;
 import Business.WorkQueue.CommerceFinanceRequest;
 import Business.WorkQueue.DonorRegistrationRequest;
 import Business.WorkQueue.WorkQueue;
@@ -30,17 +32,21 @@ public class OrphanageCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
     private UserAccount account;
     private Enterprise enterprise;
     private Organization organization;
-    private OrphanageCharityOrganization orphanageCharityOrg;
+    private OrphanageCharityOrganization orphanageWelfareCharityOrg;
+    private Network network;
     /**
      * Creates new form AnimalWelfareCharityPOCWorkAreaJPanel
      */
-    public OrphanageCharityPOCWorkAreaJPanel(UserAccount account, Enterprise enterprise, Organization organization) {
+    public OrphanageCharityPOCWorkAreaJPanel(UserAccount account, Enterprise enterprise, Organization organization, Network network) {
         initComponents();
         this.account =account;
         this.enterprise = enterprise;
         this.organization =organization;
-        this.orphanageCharityOrg = (OrphanageCharityOrganization) organization;
-        txtTotalFunds.setText(String.valueOf(orphanageCharityOrg.getTotalFunds()));
+        this.network = network;
+        this.orphanageWelfareCharityOrg = (OrphanageCharityOrganization) organization;
+        txtTotalFunds.setText(String.valueOf(orphanageWelfareCharityOrg.getTotalFunds()));
+        
+        populateTable();
     }
 
     /**
@@ -54,13 +60,13 @@ public class OrphanageCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
 
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFunds = new javax.swing.JTable();
-        jLabelIncomingKit = new javax.swing.JLabel();
         jLabelInventoryOverview = new javax.swing.JLabel();
         btnAccept = new javax.swing.JButton();
         btnReject = new javax.swing.JButton();
         jLabelTitle = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         txtTotalFunds = new javax.swing.JTextField();
+        jLabelIncomingKit1 = new javax.swing.JLabel();
 
         tblFunds.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -86,9 +92,6 @@ public class OrphanageCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
             tblFunds.getColumnModel().getColumn(0).setResizable(false);
         }
 
-        jLabelIncomingKit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabelIncomingKit.setText("Incoming Funds");
-
         jLabelInventoryOverview.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelInventoryOverview.setText("Total Donations collected for Orphanage Charity Organization");
 
@@ -112,60 +115,63 @@ public class OrphanageCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
 
         jLabel1.setText("Total Funds");
 
+        jLabelIncomingKit1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelIncomingKit1.setText("Incoming Funds");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(8, 8, 8))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1)))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(165, 165, 165)
-                                .addComponent(jLabel1)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtTotalFunds, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addComponent(jLabelInventoryOverview, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelIncomingKit, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(jScrollPane1))))
+                        .addComponent(jLabelIncomingKit1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 765, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(205, 205, 205)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtTotalFunds, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(60, 60, 60)
+                        .addComponent(jLabelInventoryOverview, javax.swing.GroupLayout.PREFERRED_SIZE, 645, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(16, 16, 16)
                 .addComponent(jLabelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(44, 44, 44)
-                .addComponent(jLabelIncomingKit, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabelIncomingKit1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(55, 55, 55)
+                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(79, 79, 79)
                 .addComponent(jLabelInventoryOverview, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtTotalFunds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(359, Short.MAX_VALUE))
+                    .addComponent(txtTotalFunds, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addContainerGap(402, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -175,7 +181,7 @@ public class OrphanageCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             WorkRequest request = (WorkRequest) tblFunds.getValueAt(selectedRow, 0);
-            if (request.getStatus().equalsIgnoreCase("Requested")) {
+            if (request.getStatus().equalsIgnoreCase("Donated")) {
                 JOptionPane.showMessageDialog(null, "Please wait until Finance Team acceptance.");
                 return;
             }
@@ -191,8 +197,9 @@ public class OrphanageCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
                 if (request instanceof CommerceFinanceRequest) {
                     CommerceFinanceRequest fundRequest = (CommerceFinanceRequest) tblFunds.getValueAt(selectedRow, 0);
                     double amount = fundRequest.getAmount();
-                    orphanageCharityOrg.addFunds(amount);
-                    txtTotalFunds.setText(String.valueOf(orphanageCharityOrg.getTotalFunds()));
+                    double totalFunds = orphanageWelfareCharityOrg.getTotalFunds() + amount;
+                    orphanageWelfareCharityOrg.setTotalFunds(totalFunds);
+                    txtTotalFunds.setText(String.valueOf(orphanageWelfareCharityOrg.getTotalFunds()));
                 }
                 request.setReceiver(account);
                 request.setStatus("Completed");
@@ -211,8 +218,8 @@ public class OrphanageCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
 
         if (selectedRow >= 0) {
             WorkRequest request = (WorkRequest) tblFunds.getValueAt(selectedRow, 0);
-            if (request.getStatus().equalsIgnoreCase("Requested")) {
-                JOptionPane.showMessageDialog(null, "Please wait until Finance Team acceptance.");
+            if (request.getStatus().equalsIgnoreCase("Donated")) {
+                JOptionPane.showMessageDialog(null, "Please wait until Finance Team acceptance");
                 return;
             }
             else if (request.getStatus().equalsIgnoreCase("Completed")) {
@@ -240,7 +247,7 @@ public class OrphanageCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnAccept;
     private javax.swing.JButton btnReject;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabelIncomingKit;
+    private javax.swing.JLabel jLabelIncomingKit1;
     private javax.swing.JLabel jLabelInventoryOverview;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JScrollPane jScrollPane1;
@@ -272,6 +279,8 @@ public class OrphanageCharityPOCWorkAreaJPanel extends javax.swing.JPanel {
                 model.addRow(row);
             }
         }
+        
+        
 
     }
 

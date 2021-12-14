@@ -16,7 +16,33 @@ public class DisasterReliefKitInventoryManagementOrganization extends Organizati
     private String name;
     
     private String disasterReliefKitInventoryManagementName;
+    private double totalFunds;
+    private int totalKits;
     
+    public double addFunds(double funds){
+        return totalFunds + funds;
+    }
+    
+    public void addKits(int kits){
+        int total = totalKits + kits;
+        setTotalKits(total);
+    }
+
+    public double getTotalFunds() {
+        return totalFunds;
+    }
+
+    public void setTotalFunds(double totalFunds) {
+        this.totalFunds = totalFunds;
+    }
+
+    public int getTotalKits() {
+        return totalKits;
+    }
+
+    public void setTotalKits(int totalKits) {
+        this.totalKits = totalKits;
+    }
      public DisasterReliefKitInventoryManagementOrganization(String name) {
         super(name);
         this.name = name;

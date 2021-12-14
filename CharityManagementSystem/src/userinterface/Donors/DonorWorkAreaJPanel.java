@@ -53,6 +53,7 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
         btnAnimalWelfare = new javax.swing.JButton();
         btnEducation = new javax.swing.JButton();
         btnFunds = new javax.swing.JButton();
+        btnDisaster = new javax.swing.JButton();
 
         lblDonarName.setFont(new java.awt.Font("Marker Felt", 1, 36)); // NOI18N
         lblDonarName.setText("Welcome Donor");
@@ -81,6 +82,13 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDisaster.setText("Donate Disaster Kit");
+        btnDisaster.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDisasterActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -97,11 +105,13 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
                         .addGap(302, 302, 302)
                         .addComponent(btnAnimalWelfare))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addComponent(btnEducation))
+                        .addGap(345, 345, 345)
+                        .addComponent(btnFunds))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(340, 340, 340)
-                        .addComponent(btnFunds)))
+                        .addGap(320, 320, 320)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnEducation)
+                            .addComponent(btnDisaster))))
                 .addContainerGap(78, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -115,9 +125,11 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnAnimalWelfare)
                 .addGap(39, 39, 39)
                 .addComponent(btnEducation)
-                .addGap(39, 39, 39)
+                .addGap(40, 40, 40)
+                .addComponent(btnDisaster)
+                .addGap(48, 48, 48)
                 .addComponent(btnFunds)
-                .addContainerGap(179, Short.MAX_VALUE))
+                .addGap(101, 101, 101))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -139,9 +151,16 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
         panel.setVisible(true);
     }//GEN-LAST:event_btnFundsActionPerformed
 
+    private void btnDisasterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDisasterActionPerformed
+        // TODO add your handling code here:
+        DonateDisasterKit panel = new DonateDisasterKit(account, network, enterprise);
+        panel.setVisible(true);
+    }//GEN-LAST:event_btnDisasterActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnimalWelfare;
+    private javax.swing.JButton btnDisaster;
     private javax.swing.JButton btnEducation;
     private javax.swing.JButton btnFunds;
     private javax.swing.JLabel jLabel1;

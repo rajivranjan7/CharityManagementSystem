@@ -4,15 +4,23 @@
  */
 package userinterface.DisasterReliefKitInventoryManagementOrganization;
 
-import Business.EcoSystem;
+import userinterface.AnimalWelfareKitInventoryManagementOrganization.*;
+import userinterface.AnimalWelfareCharityOrganization.*;
 import Business.Enterprise.Enterprise;
-import Business.Network.Network;
+import Business.Organization.AnimalWelfareCharityOrganization;
+import Business.Organization.AnimalWelfareKitInventoryManagementOrganization;
+import Business.Organization.DisasterReliefKitInventoryManagementOrganization;
 import Business.Organization.Organization;
+import static Business.Organization.Organization.Type.AnimalWelfareCharityOrganization;
+import Business.UserAccount.UserAccount;
+import Business.WorkQueue.AnimalWelfareKitInventoryRequest;
+import Business.WorkQueue.CommerceFinanceRequest;
 import Business.WorkQueue.DisasterWelfareKitInventoryRequest;
+import Business.WorkQueue.DonorRegistrationRequest;
+import Business.WorkQueue.WorkQueue;
 import Business.WorkQueue.WorkRequest;
 import java.text.SimpleDateFormat;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,24 +29,20 @@ import javax.swing.table.DefaultTableModel;
  */
 public class DisasterReliefKitInventoryManagerWorkAreaJPanel extends javax.swing.JPanel {
 
-    private static JPanel container;
-    private static EcoSystem system;
-    private static Network network;
-    private static Enterprise enterprise;
-
+    private UserAccount account;
+    private Enterprise enterprise;
+    private Organization organization;
+    private DisasterReliefKitInventoryManagementOrganization disasterWelfareInventoryOrg;
     /**
-     * Creates new form DisasterReliefKitInventoryManagerWorkAreaJPanel
+     * Creates new form AnimalWelfareCharityPOCWorkAreaJPanel
      */
-    public DisasterReliefKitInventoryManagerWorkAreaJPanel(JPanel container, EcoSystem system, Network network, Enterprise enterprise) {
+    public DisasterReliefKitInventoryManagerWorkAreaJPanel(UserAccount account, Enterprise enterprise, Organization organization) {
         initComponents();
-
-        this.container = container;
-        this.system = system;
-        this.network = network;
+        this.account =account;
         this.enterprise = enterprise;
-        populateOrganizationTable();
-        populateOrganizationTypes();
-        populateWorkRequestTable();
+        this.organization =organization;
+        this.disasterWelfareInventoryOrg = (DisasterReliefKitInventoryManagementOrganization) organization;
+        populateTable();
     }
 
     /**
@@ -50,280 +54,198 @@ public class DisasterReliefKitInventoryManagerWorkAreaJPanel extends javax.swing
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelTitle = new javax.swing.JLabel();
-        jTabbedPane1 = new javax.swing.JTabbedPane();
-        jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblOrganizationList = new javax.swing.JTable();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        comboBoxOrgType = new javax.swing.JComboBox();
-        txtName = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        btnAddOrganization = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        lblDonarName = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tblWorkQueue = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        tblKits = new javax.swing.JTable();
+        jLabelIncomingKit = new javax.swing.JLabel();
+        btnAccept = new javax.swing.JButton();
+        btnReject = new javax.swing.JButton();
+        jLabelTitle = new javax.swing.JLabel();
 
-        jLabelTitle.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitle.setText("Disaster Relief Kit Inventory ");
-
-        tblOrganizationList.setModel(new javax.swing.table.DefaultTableModel(
+        tblKits.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null},
-                {null},
-                {null},
-                {null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
-                "Organization Name"
+                "Request #", "Date", "Quantity", "Donor Name", "Source", "Status"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false
+                false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(tblOrganizationList);
+        jScrollPane1.setViewportView(tblKits);
 
-        jLabel1.setText("Organization List");
+        jLabelIncomingKit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelIncomingKit.setText("Incoming Kits");
 
-        jLabel2.setText("Organization Type");
-
-        comboBoxOrgType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
-        jLabel3.setText("Name");
-
-        btnAddOrganization.setText("Add Organization");
-        btnAddOrganization.addActionListener(new java.awt.event.ActionListener() {
+        btnAccept.setText("Accept");
+        btnAccept.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddOrganizationActionPerformed(evt);
+                btnAcceptActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel2))
-                        .addGap(54, 54, 54)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnAddOrganization)
-                            .addComponent(comboBoxOrgType, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 844, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(comboBoxOrgType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(57, 57, 57)
-                .addComponent(btnAddOrganization)
-                .addContainerGap(111, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Manage Organization", jPanel1);
-
-        lblDonarName.setFont(new java.awt.Font("Marker Felt", 1, 36)); // NOI18N
-        lblDonarName.setText("Welcome Inventory Manager");
-
-        tblWorkQueue.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Request Date", "Donor Name", "Donor Type", "Quantity", "Status"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
+        btnReject.setText("Reject");
+        btnReject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRejectActionPerformed(evt);
             }
         });
-        jScrollPane2.setViewportView(tblWorkQueue);
 
-        jButton1.setText("Approve");
-
-        jButton2.setText("Reject ");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addGap(39, 39, 39)
-                .addComponent(jButton1)
-                .addGap(306, 306, 306))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(256, 256, 256)
-                .addComponent(lblDonarName)
-                .addContainerGap(752, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(lblDonarName)
-                .addGap(55, 55, 55)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addContainerGap(197, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Manage work request", jPanel2);
+        jLabelTitle.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitle.setText("Disaster Welfare Kit Inventory Admin");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jTabbedPane1)
-                        .addGap(24, 24, 24))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabelIncomingKit, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 694, Short.MAX_VALUE))))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(44, 44, 44)
                 .addComponent(jLabelTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
-                .addComponent(jTabbedPane1)
-                .addGap(146, 146, 146))
+                .addGap(44, 44, 44)
+                .addComponent(jLabelIncomingKit, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(503, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAddOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrganizationActionPerformed
+    private void btnAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAcceptActionPerformed
         // TODO add your handling code here:
-        String name = txtName.getText().trim();
-        Organization.Type type = (Organization.Type) comboBoxOrgType.getSelectedItem();
-        if (!name.isEmpty()) {
-            Organization org = enterprise.getOrganizationDirectory().createOrganization(type, txtName.getText());
-            JOptionPane.showMessageDialog(null, "Organization Successfully Created");
-            txtName.setText("");
+        int selectedRow = tblKits.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            WorkRequest request = (WorkRequest) tblKits.getValueAt(selectedRow, 0);
+            if (request.getStatus().equalsIgnoreCase("Completed")) {
+                JOptionPane.showMessageDialog(null, "Request is already completed.");
+                return;
+            }
+            else if (request.getStatus().equalsIgnoreCase("Rejected")) {
+                JOptionPane.showMessageDialog(null, "Request is already rejected.");
+                return;
+            }
+            else if (request.getStatus().equalsIgnoreCase("Forwarded to Charity Organization")) {
+                JOptionPane.showMessageDialog(null, "Request is already forwarded to the charity organization.");
+                return;
+            }
+            else {
+                if (request instanceof DisasterWelfareKitInventoryRequest) {
+                    DisasterWelfareKitInventoryRequest fundRequest = (DisasterWelfareKitInventoryRequest) tblKits.getValueAt(selectedRow, 0);
+//                    
+//                    int quantity = fundRequest.getQuanity();
+//                    int totalKits = animalWelfareInventoryOrg.getTotalKits() + quantity;
+//                    animalWelfareInventoryOrg.setTotalKits(totalKits);
+//                    txtTotalKits.setText(String.valueOf(animalWelfareInventoryOrg.getTotalKits()));
+                }
+                request.setReceiver(account);
+                request.setStatus("Forwarded to Charity Organization");
+                populateTable();
+                JOptionPane.showMessageDialog(null, "Request is forwarded to the charity organization");
+            }
         } else {
-            JOptionPane.showMessageDialog(null, "Enter Organization name");
+            JOptionPane.showMessageDialog(null, "Choose a request to accept.");
+            return;
         }
-        
-        populateOrganizationTable();
-    }//GEN-LAST:event_btnAddOrganizationActionPerformed
+    }//GEN-LAST:event_btnAcceptActionPerformed
+
+    private void btnRejectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRejectActionPerformed
+        // TODO add your handling code here:
+        int selectedRow = tblKits.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            WorkRequest request = (WorkRequest) tblKits.getValueAt(selectedRow, 0);
+            if (request.getStatus().equalsIgnoreCase("Forwarded to Charity Organization")) {
+                JOptionPane.showMessageDialog(null, "Request is already forwarded to Charity Organization");
+                return;
+            }
+            else if (request.getStatus().equalsIgnoreCase("Completed")) {
+                JOptionPane.showMessageDialog(null, "Request is already completed.");
+                return;
+            }
+            else if (request.getStatus().equalsIgnoreCase("Rejected")) {
+                JOptionPane.showMessageDialog(null, "Request is already rejected.");
+                return;
+            }
+            else {
+                request.setReceiver(account);
+                request.setStatus("Rejected");
+                populateTable();
+                JOptionPane.showMessageDialog(null, "Request is rejected");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Choose a request to reject.");
+            return;
+        }
+    }//GEN-LAST:event_btnRejectActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddOrganization;
-    private javax.swing.JComboBox comboBoxOrgType;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton btnAccept;
+    private javax.swing.JButton btnReject;
+    private javax.swing.JLabel jLabelIncomingKit;
     private javax.swing.JLabel jLabelTitle;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel lblDonarName;
-    private javax.swing.JTable tblOrganizationList;
-    private javax.swing.JTable tblWorkQueue;
-    private javax.swing.JTextField txtName;
+    private javax.swing.JTable tblKits;
     // End of variables declaration//GEN-END:variables
 
-    private void populateOrganizationTable() {
-        DefaultTableModel model = (DefaultTableModel) tblOrganizationList.getModel();
+    public void populateTable() {
+        
+        DefaultTableModel model = (DefaultTableModel) tblKits.getModel();
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
 
         model.setRowCount(0);
-        for (Enterprise e : network.getEnterpriseDirectory().getEnterpriseList()) {
-            for (Organization org : e.getOrganizationDirectory().getOrganizationList()) {
-                Object[] row = new Object[1];
-                row[0] = org.getName();
+
+        if (organization.getWorkQueue() == null) {
+            organization.setWorkQueue(new WorkQueue());
+        }
+        for (WorkRequest workRequest : organization.getWorkQueue().getWorkRequestList()) {
+
+            if (workRequest instanceof DisasterWelfareKitInventoryRequest) {
+                Object[] row = new Object[model.getColumnCount()];
+                row[0] = workRequest;
+                row[1] = formatter.format(((DisasterWelfareKitInventoryRequest) workRequest).getRequestDate());
+                row[2] = ((DisasterWelfareKitInventoryRequest) workRequest).getQuanity();
+                row[3] = ((DisasterWelfareKitInventoryRequest) workRequest).getDonorName();
+                row[4] = ((DisasterWelfareKitInventoryRequest) workRequest).getDonorType();
+                row[5] = ((DisasterWelfareKitInventoryRequest) workRequest).getStatus();
+
                 model.addRow(row);
             }
-
         }
+
     }
 
-    private void populateOrganizationTypes() {
-        comboBoxOrgType.removeAllItems();
-        comboBoxOrgType.addItem(Organization.Type.DisasterReliefKitInventoryManagementOrganization);
-    }
-
-    private void populateWorkRequestTable() {
-        DefaultTableModel model = (DefaultTableModel) tblWorkQueue.getModel();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss");
-        model.setRowCount(0);
-        for (Network network : system.getNetworkList()) {
-            for (Enterprise enterprise : network.getEnterpriseDirectory().getEnterpriseList()) {
-                if (enterprise.getEnterpriseType() == Enterprise.EnterpriseType.InventoryManagementDirectory) {
-                    for (Organization org : enterprise.getOrganizationDirectory().getOrganizationList()) {
-                        for (WorkRequest wr : org.getWorkQueue().getWorkRequestList()) {
-                            if (wr instanceof DisasterWelfareKitInventoryRequest) {
-                                Object[] row = new Object[5];
-                                row[0] = formatter.format(wr.getRequestDate());
-                                row[1] = ((DisasterWelfareKitInventoryRequest) wr).getDonorName();
-                                row[2] = ((DisasterWelfareKitInventoryRequest) wr).getDonorType();
-                                row[3] = ((DisasterWelfareKitInventoryRequest) wr).getQuanity();
-                                row[4] = wr.getStatus();
-                                model.addRow(row);
-                            }
-
-                        }
-
-                    }
-                }
-
-            }
-        }
-    }
 }
