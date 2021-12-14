@@ -29,17 +29,17 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-//import org.jfree.chart.ChartFactory;
-//import org.jfree.chart.ChartFrame;
-//import org.jfree.chart.ChartPanel;
-//import org.jfree.chart.ChartUtilities;
-//import org.jfree.chart.JFreeChart;
-//import org.jfree.chart.plot.CategoryPlot;
-//import org.jfree.chart.plot.PlotOrientation;
-//import org.jfree.data.category.CategoryDataset;
-//import org.jfree.data.category.DefaultCategoryDataset;
-//import org.jfree.data.general.DefaultPieDataset;
-//import org.jfree.data.general.PieDataset;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.ChartUtilities;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
 
 /**
  *
@@ -53,7 +53,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
     private static Enterprise enterprise;
     private static UserAccount account;
     
-    // JFreeChart jchart;
+     JFreeChart jchart;
     
     /**
      * Creates new form InventoryAdminWorkArea
@@ -502,7 +502,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
 
     private void jButtonDownloadReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDownloadReportActionPerformed
         // TODO add your handling code here:
-      /*  try {
+         try {
             int width = 640;
             int height = 480;
             File BarChart = new File("ReportInventory.jpeg");
@@ -510,7 +510,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Report has been downloaded successfully!");
         } catch (IOException ex) {
             Logger.getLogger("Exception");
-        } */
+        } 
     }//GEN-LAST:event_jButtonDownloadReportActionPerformed
 
 
@@ -641,7 +641,7 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
     }
 
     private void populateBarGraph() {
-    /*    DefaultTableModel dtm = (DefaultTableModel) tblWorkQueue.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) tblWorkQueue.getModel();
         int rowCount = dtm.getRowCount();
         //System.out.println("Rowcount + "+ rowCount);
         int count=0;
@@ -688,6 +688,6 @@ public class InventoryAdminWorkArea extends javax.swing.JPanel {
         jPanelReport.add(chartPanel);
         jPanelReport.updateUI();
         System.out.println("Kits Chart Created");
-        */
+        
     } 
 }
