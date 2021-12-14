@@ -206,7 +206,7 @@ public class DonorAdminWorkArea extends javax.swing.JPanel {
         lblDonarName2.setFont(new java.awt.Font("Marker Felt", 1, 24)); // NOI18N
         lblDonarName2.setForeground(new java.awt.Color(2, 55, 108));
         lblDonarName2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDonarName2.setText("Welcome Inventory Admin");
+        lblDonarName2.setText("Welcome Donor Admin");
         jPanel1.add(lblDonarName2);
         lblDonarName2.setBounds(10, 50, 1109, 32);
 
@@ -272,7 +272,7 @@ public class DonorAdminWorkArea extends javax.swing.JPanel {
         lblDonarName1.setFont(new java.awt.Font("Marker Felt", 1, 24)); // NOI18N
         lblDonarName1.setForeground(new java.awt.Color(2, 55, 108));
         lblDonarName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblDonarName1.setText("Welcome Inventory Admin");
+        lblDonarName1.setText("Welcome Donor Admin");
         jPanel2.add(lblDonarName1);
         lblDonarName1.setBounds(10, 50, 1109, 32);
 
