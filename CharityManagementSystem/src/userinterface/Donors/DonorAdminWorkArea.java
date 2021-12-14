@@ -115,13 +115,30 @@ public class DonorAdminWorkArea extends javax.swing.JPanel {
         txtName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         btnAddOrganization = new javax.swing.JButton();
+        lblDonarName2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        lblDonarName = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblWorkQueue = new javax.swing.JTable();
         btnProcess = new javax.swing.JButton();
         btnAssign = new javax.swing.JButton();
+        lblDonarName1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(null);
+
+        jTabbedPane1.setForeground(new java.awt.Color(2, 55, 108));
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel1.setLayout(null);
+
+        jScrollPane1.setForeground(new java.awt.Color(2, 55, 108));
+
+        tblOrganizationList.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108)), javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108))));
         tblOrganizationList.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null},
@@ -143,79 +160,62 @@ public class DonorAdminWorkArea extends javax.swing.JPanel {
         });
         jScrollPane1.setViewportView(tblOrganizationList);
 
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(10, 130, 888, 194);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(2, 55, 108));
         jLabel1.setText("Organization List");
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(10, 100, 152, 22);
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(2, 55, 108));
         jLabel2.setText("Organization Type");
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(270, 390, 164, 22);
 
+        comboBoxOrgType.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         comboBoxOrgType.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jPanel1.add(comboBoxOrgType);
+        comboBoxOrgType.setBounds(480, 390, 220, 40);
 
+        txtName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jPanel1.add(txtName);
+        txtName.setBounds(480, 440, 220, 40);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Name");
+        jPanel1.add(jLabel3);
+        jLabel3.setBounds(320, 440, 110, 22);
 
+        btnAddOrganization.setBackground(new java.awt.Color(2, 55, 108));
+        btnAddOrganization.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnAddOrganization.setForeground(new java.awt.Color(255, 255, 255));
         btnAddOrganization.setText("Add Organization");
         btnAddOrganization.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddOrganizationActionPerformed(evt);
             }
         });
+        jPanel1.add(btnAddOrganization);
+        btnAddOrganization.setBounds(480, 530, 220, 40);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(267, 267, 267)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(54, 54, 54)
-                                        .addComponent(comboBoxOrgType, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGap(62, 62, 62)
-                                        .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 206, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(79, 79, 79)
-                                .addComponent(btnAddOrganization)))
-                        .addGap(0, 178, Short.MAX_VALUE)))
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(comboBoxOrgType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(53, 53, 53)
-                .addComponent(btnAddOrganization)
-                .addContainerGap(98, Short.MAX_VALUE))
-        );
+        lblDonarName2.setFont(new java.awt.Font("Marker Felt", 1, 24)); // NOI18N
+        lblDonarName2.setForeground(new java.awt.Color(2, 55, 108));
+        lblDonarName2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDonarName2.setText("Welcome Inventory Admin");
+        jPanel1.add(lblDonarName2);
+        lblDonarName2.setBounds(10, 50, 1109, 32);
 
         jTabbedPane1.addTab("Manage Organization", jPanel1);
 
-        lblDonarName.setFont(new java.awt.Font("Marker Felt", 1, 36)); // NOI18N
-        lblDonarName.setText("Welcome Donor Admin");
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel2.setLayout(null);
 
+        tblWorkQueue.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108)), javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108))));
         tblWorkQueue.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null, null},
@@ -242,67 +242,65 @@ public class DonorAdminWorkArea extends javax.swing.JPanel {
             tblWorkQueue.getColumnModel().getColumn(0).setMaxWidth(0);
         }
 
+        jPanel2.add(jScrollPane2);
+        jScrollPane2.setBounds(10, 128, 955, 160);
+
+        btnProcess.setBackground(new java.awt.Color(2, 55, 108));
+        btnProcess.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnProcess.setForeground(new java.awt.Color(255, 255, 255));
         btnProcess.setText("Process");
         btnProcess.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProcessActionPerformed(evt);
             }
         });
+        jPanel2.add(btnProcess);
+        btnProcess.setBounds(780, 320, 180, 40);
 
+        btnAssign.setBackground(new java.awt.Color(2, 55, 108));
+        btnAssign.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnAssign.setForeground(new java.awt.Color(255, 255, 255));
         btnAssign.setText("Assign to me ");
         btnAssign.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAssignActionPerformed(evt);
             }
         });
+        jPanel2.add(btnAssign);
+        btnAssign.setBounds(580, 320, 180, 40);
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnAssign)
-                .addGap(39, 39, 39)
-                .addComponent(btnProcess)
-                .addGap(306, 306, 306))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(256, 256, 256)
-                .addComponent(lblDonarName)
-                .addContainerGap(268, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(lblDonarName)
-                .addGap(55, 55, 55)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnProcess)
-                    .addComponent(btnAssign))
-                .addContainerGap(197, Short.MAX_VALUE))
-        );
+        lblDonarName1.setFont(new java.awt.Font("Marker Felt", 1, 24)); // NOI18N
+        lblDonarName1.setForeground(new java.awt.Color(2, 55, 108));
+        lblDonarName1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblDonarName1.setText("Welcome Inventory Admin");
+        jPanel2.add(lblDonarName1);
+        lblDonarName1.setBounds(10, 50, 1109, 32);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel4.setText("Donor List");
+        jPanel2.add(jLabel4);
+        jLabel4.setBounds(10, 100, 92, 22);
 
         jTabbedPane1.addTab("Manage work request", jPanel2);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTabbedPane1))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1)
-        );
+        add(jTabbedPane1);
+        jTabbedPane1.setBounds(10, 91, 1000, 600);
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel7.setText("Donor Admin");
+        add(jLabel7);
+        jLabel7.setBounds(18, 11, 1116, 67);
+
+        jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/icons8-avatar-64 (15).png"))); // NOI18N
+        add(jLabel5);
+        jLabel5.setBounds(0, 0, 100, 90);
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/sysadmin2.jpg"))); // NOI18N
+        add(jLabel8);
+        jLabel8.setBounds(940, 140, 660, 500);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddOrganizationActionPerformed
@@ -397,12 +395,17 @@ public class DonorAdminWorkArea extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JLabel lblDonarName;
+    private javax.swing.JLabel lblDonarName1;
+    private javax.swing.JLabel lblDonarName2;
     private javax.swing.JTable tblOrganizationList;
     private javax.swing.JTable tblWorkQueue;
     private javax.swing.JTextField txtName;

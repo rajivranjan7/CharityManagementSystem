@@ -67,6 +67,13 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
         btnReject = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
+        jTabbedPane1.setForeground(new java.awt.Color(2, 55, 108));
+        jTabbedPane1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255));
+        jPanel3.setLayout(null);
+
+        tblFunds.setBorder(javax.swing.BorderFactory.createCompoundBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108)), javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108))));
         tblFunds.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null, null},
@@ -93,8 +100,14 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
             tblFunds.getColumnModel().getColumn(0).setMaxWidth(0);
         }
 
+        jPanel3.add(jScrollPane3);
+        jScrollPane3.setBounds(10, 197, 1510, 177);
+
         jLabelIncomingKit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabelIncomingKit.setForeground(new java.awt.Color(2, 55, 108));
         jLabelIncomingKit.setText("Incoming Funds");
+        jPanel3.add(jLabelIncomingKit);
+        jLabelIncomingKit.setBounds(10, 154, 178, 37);
 
         btnAccept.setText("Accept");
         btnAccept.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +115,8 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
                 btnAcceptActionPerformed(evt);
             }
         });
+        jPanel3.add(btnAccept);
+        btnAccept.setBounds(1397, 380, 123, 36);
 
         btnReject.setText("Reject");
         btnReject.addActionListener(new java.awt.event.ActionListener() {
@@ -109,47 +124,14 @@ public class CommerceFinanceTeamLedgerWorkAreaJPanel extends javax.swing.JPanel 
                 btnRejectActionPerformed(evt);
             }
         });
+        jPanel3.add(btnReject);
+        btnReject.setBounds(1268, 380, 123, 36);
 
         jLabel2.setFont(new java.awt.Font("Marker Felt", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(2, 55, 108));
         jLabel2.setText("Welcome Finance Ledger");
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(0, 1258, Short.MAX_VALUE)
-                        .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jLabelIncomingKit, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(587, 587, 587)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jLabel2)
-                .addGap(56, 56, 56)
-                .addComponent(jLabelIncomingKit, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnReject, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(430, Short.MAX_VALUE))
-        );
+        jPanel3.add(jLabel2);
+        jLabel2.setBounds(587, 51, 433, 47);
 
         jTabbedPane1.addTab("Manage Work Requests", jPanel3);
 

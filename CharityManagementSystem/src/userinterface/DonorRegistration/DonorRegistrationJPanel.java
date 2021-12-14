@@ -66,7 +66,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
     private boolean userUnique;
     private boolean isRunning = false;
 
-    Webcam webcam = Webcam.getDefault();
+//    Webcam webcam = Webcam.getDefault();
 
     public DonorRegistrationJPanel(JPanel userProcessContainer, EcoSystem system) {
         initComponents();
@@ -153,70 +153,70 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitle.setText("DONOR REGISTRATION");
         add(jLabelTitle);
-        jLabelTitle.setBounds(-90, 37, 1148, 50);
+        jLabelTitle.setBounds(0, 40, 1148, 50);
 
         jLabelName.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelName.setForeground(new java.awt.Color(2, 55, 108));
         jLabelName.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelName.setText("Name:");
         add(jLabelName);
-        jLabelName.setBounds(340, 160, 138, 23);
+        jLabelName.setBounds(410, 160, 138, 23);
 
         jLabelUsername.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelUsername.setForeground(new java.awt.Color(2, 55, 108));
         jLabelUsername.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelUsername.setText("Username:");
         add(jLabelUsername);
-        jLabelUsername.setBounds(340, 220, 138, 23);
+        jLabelUsername.setBounds(410, 220, 138, 23);
 
         jLabelPassword.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(2, 55, 108));
         jLabelPassword.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelPassword.setText("Password:");
         add(jLabelPassword);
-        jLabelPassword.setBounds(340, 280, 138, 23);
+        jLabelPassword.setBounds(410, 280, 138, 23);
 
         jLabelEmail.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelEmail.setForeground(new java.awt.Color(2, 55, 108));
         jLabelEmail.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelEmail.setText("Email ID:");
         add(jLabelEmail);
-        jLabelEmail.setBounds(340, 340, 138, 23);
+        jLabelEmail.setBounds(410, 340, 138, 23);
 
         jLabelState.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelState.setForeground(new java.awt.Color(2, 55, 108));
         jLabelState.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelState.setText("Network:");
         add(jLabelState);
-        jLabelState.setBounds(340, 460, 138, 23);
+        jLabelState.setBounds(410, 460, 138, 23);
 
         jLabelOrganization.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelOrganization.setForeground(new java.awt.Color(2, 55, 108));
         jLabelOrganization.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelOrganization.setText("Organization:");
         add(jLabelOrganization);
-        jLabelOrganization.setBounds(330, 520, 150, 23);
+        jLabelOrganization.setBounds(400, 520, 150, 23);
 
         jLabelCarrier.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelCarrier.setForeground(new java.awt.Color(2, 55, 108));
         jLabelCarrier.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelCarrier.setText("Mobile Network:");
         add(jLabelCarrier);
-        jLabelCarrier.setBounds(300, 580, 180, 23);
+        jLabelCarrier.setBounds(370, 580, 180, 23);
 
         jLabelContact.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelContact.setForeground(new java.awt.Color(2, 55, 108));
         jLabelContact.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelContact.setText("Contact:");
         add(jLabelContact);
-        jLabelContact.setBounds(340, 640, 138, 23);
+        jLabelContact.setBounds(410, 640, 138, 23);
 
         jLabelLocation.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabelLocation.setForeground(new java.awt.Color(2, 55, 108));
         jLabelLocation.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabelLocation.setText("Address:");
         add(jLabelLocation);
-        jLabelLocation.setBounds(400, 400, 78, 23);
+        jLabelLocation.setBounds(470, 400, 78, 23);
 
         jTextFieldName.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldName.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -228,7 +228,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(jTextFieldName);
-        jTextFieldName.setBounds(540, 150, 240, 40);
+        jTextFieldName.setBounds(610, 150, 240, 40);
 
         jTextFieldUsername.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
@@ -245,7 +245,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(jTextFieldUsername);
-        jTextFieldUsername.setBounds(540, 210, 240, 40);
+        jTextFieldUsername.setBounds(610, 210, 240, 40);
 
         jTextFieldPassword.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldPassword.addActionListener(new java.awt.event.ActionListener() {
@@ -259,7 +259,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(jTextFieldPassword);
-        jTextFieldPassword.setBounds(540, 270, 240, 40);
+        jTextFieldPassword.setBounds(610, 270, 240, 40);
 
         jTextFieldEmailID.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldEmailID.addActionListener(new java.awt.event.ActionListener() {
@@ -273,43 +273,52 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(jTextFieldEmailID);
-        jTextFieldEmailID.setBounds(540, 330, 240, 40);
+        jTextFieldEmailID.setBounds(610, 330, 240, 40);
 
         jTextFieldContact.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTextFieldContact.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 jTextFieldContactKeyPressed(evt);
             }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldContactKeyTyped(evt);
+            }
         });
         add(jTextFieldContact);
-        jTextFieldContact.setBounds(540, 630, 240, 40);
+        jTextFieldContact.setBounds(610, 630, 240, 40);
 
         jTextFieldAddress.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jTextFieldAddress.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextFieldAddressKeyTyped(evt);
+            }
+        });
         add(jTextFieldAddress);
-        jTextFieldAddress.setBounds(540, 390, 240, 40);
+        jTextFieldAddress.setBounds(610, 390, 240, 40);
 
-        jButtonRegister.setBackground(new java.awt.Color(255, 255, 255));
-        jButtonRegister.setFont(new java.awt.Font("Trebuchet MS", 1, 14)); // NOI18N
-        jButtonRegister.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/24945-4-register-button-transparent.png"))); // NOI18N
+        jButtonRegister.setBackground(new java.awt.Color(2, 55, 108));
+        jButtonRegister.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jButtonRegister.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonRegister.setText("Register");
         jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonRegisterActionPerformed(evt);
             }
         });
         add(jButtonRegister);
-        jButtonRegister.setBounds(570, 710, 160, 60);
+        jButtonRegister.setBounds(610, 710, 240, 50);
 
         jLabelUsernameExists.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelUsernameExists.setForeground(new java.awt.Color(255, 0, 0));
         jLabelUsernameExists.setText("Username Already Exists!");
         add(jLabelUsernameExists);
-        jLabelUsernameExists.setBounds(850, 220, 144, 14);
+        jLabelUsernameExists.setBounds(920, 220, 144, 14);
 
         jLabelEmailIncorrect.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabelEmailIncorrect.setForeground(new java.awt.Color(255, 0, 0));
         jLabelEmailIncorrect.setText("Incorrect Email Format!");
         add(jLabelEmailIncorrect);
-        jLabelEmailIncorrect.setBounds(850, 340, 133, 14);
+        jLabelEmailIncorrect.setBounds(920, 340, 133, 14);
         add(jLabel1);
         jLabel1.setBounds(793, 144, 93, 25);
 
@@ -326,7 +335,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(jComboBoxNetwork);
-        jComboBoxNetwork.setBounds(540, 450, 240, 40);
+        jComboBoxNetwork.setBounds(610, 450, 240, 40);
 
         jComboBoxOrganization.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBoxOrganization.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -346,7 +355,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(jComboBoxOrganization);
-        jComboBoxOrganization.setBounds(540, 510, 240, 40);
+        jComboBoxOrganization.setBounds(610, 510, 240, 40);
 
         jComboBoxMobileNetwork.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jComboBoxMobileNetwork.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
@@ -366,15 +375,15 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(jComboBoxMobileNetwork);
-        jComboBoxMobileNetwork.setBounds(540, 570, 240, 40);
+        jComboBoxMobileNetwork.setBounds(610, 570, 240, 40);
 
         jLabeluserNameSuccess.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/tick1.4.gif"))); // NOI18N
         add(jLabeluserNameSuccess);
-        jLabeluserNameSuccess.setBounds(800, 210, 40, 33);
+        jLabeluserNameSuccess.setBounds(870, 210, 40, 33);
 
         jLabelEmailSuccess.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Pictures/tick1.4.gif"))); // NOI18N
         add(jLabelEmailSuccess);
-        jLabelEmailSuccess.setBounds(800, 330, 40, 33);
+        jLabelEmailSuccess.setBounds(870, 330, 40, 33);
 
         jButtonClickImage.setBackground(new java.awt.Color(2, 55, 108));
         jButtonClickImage.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -386,13 +395,13 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
             }
         });
         add(jButtonClickImage);
-        jButtonClickImage.setBounds(79, 360, 180, 40);
+        jButtonClickImage.setBounds(90, 440, 180, 40);
         add(jLabelImageHolder);
-        jLabelImageHolder.setBounds(10, 100, 320, 240);
+        jLabelImageHolder.setBounds(10, 100, 380, 310);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/donating-art-to-charity.png"))); // NOI18N
         add(jLabel2);
-        jLabel2.setBounds(970, 80, 980, 650);
+        jLabel2.setBounds(920, 190, 980, 650);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsernameActionPerformed
@@ -645,7 +654,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
 
     private void jButtonClickImageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClickImageActionPerformed
         // TODO add your handling code here:
-        if (!isRunning) {
+    /*    if (!isRunning) {
             isRunning = true;
             new VideoFeedTaker().start();
         } else {
@@ -667,8 +676,20 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
 //        webcam.open();
 //        
 //        webcam.close();
-    
+    */
     }//GEN-LAST:event_jButtonClickImageActionPerformed
+
+    private void jTextFieldAddressKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldAddressKeyTyped
+        // TODO add your handling code here:
+        jTextFieldAddress.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        jTextFieldAddress.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jTextFieldAddressKeyTyped
+
+    private void jTextFieldContactKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextFieldContactKeyTyped
+        // TODO add your handling code here:
+        jTextFieldContact.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        jTextFieldContact.setForeground(Color.BLACK);
+    }//GEN-LAST:event_jTextFieldContactKeyTyped
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -811,7 +832,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
     }
 
     class VideoFeedTaker extends Thread {
-
+        /*
         @Override
         public void run() {
 //            webcam.setViewSize(new Dimension(176, 144));
@@ -831,7 +852,7 @@ public class DonorRegistrationJPanel extends javax.swing.JPanel {
                 }
             }
             //boolean close = webcam.close();
-        } 
+        } */
     }  
 
 }

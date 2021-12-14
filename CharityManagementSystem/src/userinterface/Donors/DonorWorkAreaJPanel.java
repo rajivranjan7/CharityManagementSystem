@@ -8,6 +8,7 @@ import Business.EcoSystem;
 import Business.Enterprise.Enterprise;
 import Business.Network.Network;
 import Business.UserAccount.UserAccount;
+import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -37,6 +38,10 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
         firstLetter = firstLetter.toUpperCase();
         String name = firstLetter + remainingLetters;
         lblDonarName.setText("Welcome "+ name);
+        
+        ImageIcon iconLogo = new ImageIcon("UserCapture.jpg");
+        // In init() method write this code
+       jLabel2.setIcon(iconLogo);
     }
 
     /**
@@ -54,83 +59,81 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
         btnEducation = new javax.swing.JButton();
         btnFunds = new javax.swing.JButton();
         btnDisaster = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
-        lblDonarName.setFont(new java.awt.Font("Marker Felt", 1, 36)); // NOI18N
+        setBackground(new java.awt.Color(255, 255, 255));
+        setLayout(null);
+
+        lblDonarName.setFont(new java.awt.Font("Marker Felt", 1, 24)); // NOI18N
+        lblDonarName.setForeground(new java.awt.Color(2, 55, 108));
         lblDonarName.setText("Welcome Donor");
+        add(lblDonarName);
+        lblDonarName.setBounds(350, 220, 183, 32);
 
-        jLabel1.setFont(new java.awt.Font("Malayalam MN", 0, 18)); // NOI18N
-        jLabel1.setText("Your generous donation is helping in making our world a better place for everyone");
+        jLabel1.setFont(new java.awt.Font("Malayalam MN", 3, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(2, 55, 108));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel1.setText("Your generous donation is helping in making our world a better place for everyone.");
+        add(jLabel1);
+        jLabel1.setBounds(340, 300, 720, 24);
 
+        btnAnimalWelfare.setBackground(new java.awt.Color(2, 55, 108));
+        btnAnimalWelfare.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnAnimalWelfare.setForeground(new java.awt.Color(255, 255, 255));
         btnAnimalWelfare.setText("Donate Animal Welfare Kit");
         btnAnimalWelfare.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnimalWelfareActionPerformed(evt);
             }
         });
+        add(btnAnimalWelfare);
+        btnAnimalWelfare.setBounds(350, 400, 340, 80);
 
+        btnEducation.setBackground(new java.awt.Color(2, 55, 108));
+        btnEducation.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnEducation.setForeground(new java.awt.Color(255, 255, 255));
         btnEducation.setText("Donate Education Kit");
         btnEducation.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEducationActionPerformed(evt);
             }
         });
+        add(btnEducation);
+        btnEducation.setBounds(350, 500, 340, 80);
 
-        btnFunds.setText("Donate funds");
+        btnFunds.setBackground(new java.awt.Color(2, 55, 108));
+        btnFunds.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnFunds.setForeground(new java.awt.Color(255, 255, 255));
+        btnFunds.setText("Donate Funds");
         btnFunds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnFundsActionPerformed(evt);
             }
         });
+        add(btnFunds);
+        btnFunds.setBounds(350, 700, 340, 80);
 
+        btnDisaster.setBackground(new java.awt.Color(2, 55, 108));
+        btnDisaster.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnDisaster.setForeground(new java.awt.Color(255, 255, 255));
         btnDisaster.setText("Donate Disaster Kit");
         btnDisaster.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDisasterActionPerformed(evt);
             }
         });
+        add(btnDisaster);
+        btnDisaster.setBounds(350, 600, 340, 80);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(299, 299, 299)
-                        .addComponent(lblDonarName))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(63, 63, 63)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(302, 302, 302)
-                        .addComponent(btnAnimalWelfare))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(345, 345, 345)
-                        .addComponent(btnFunds))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(320, 320, 320)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnEducation)
-                            .addComponent(btnDisaster))))
-                .addContainerGap(78, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(lblDonarName)
-                .addGap(47, 47, 47)
-                .addComponent(jLabel1)
-                .addGap(74, 74, 74)
-                .addComponent(btnAnimalWelfare)
-                .addGap(39, 39, 39)
-                .addComponent(btnEducation)
-                .addGap(40, 40, 40)
-                .addComponent(btnDisaster)
-                .addGap(48, 48, 48)
-                .addComponent(btnFunds)
-                .addGap(101, 101, 101))
-        );
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(2, 55, 108)));
+        add(jLabel2);
+        jLabel2.setBounds(20, 50, 300, 280);
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/PictureUI/Thank you Donor.PNG"))); // NOI18N
+        add(jLabel3);
+        jLabel3.setBounds(820, 380, 850, 410);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAnimalWelfareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnimalWelfareActionPerformed
@@ -164,6 +167,8 @@ public class DonorWorkAreaJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnEducation;
     private javax.swing.JButton btnFunds;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblDonarName;
     // End of variables declaration//GEN-END:variables
 }
