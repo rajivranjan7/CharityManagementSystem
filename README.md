@@ -20,8 +20,3 @@ Managing various Organizations under Enterprises can impose a great challenge es
 ## Steps to Run the project:
 - Step 1. : Clean Build the java Application
 - Step 2. : Execute the Application
-
-## Project Group Members Details :-
-- Nandita Sharma (NUID - 002954757)
-- Prabhansh Sharma (NUID - 002198201)
-- Rajiv Ranjan Sahu (NUID - 002101619)
